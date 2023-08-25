@@ -12,6 +12,8 @@ export async function getSlug() {
   return paths.map((path) => {
     // holds the paths to the directory of the article
     const pathContent = path.split('/')
+    
+    //use filename as slug
     const fileName = pathContent[pathContent.length - 1]
     const [slug, _extension] = fileName.split('.')
 
