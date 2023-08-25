@@ -45,3 +45,25 @@ export async function getArticleFromSlug(slug: MarkdownData) {
       },
     }
   }
+
+  export async function getAllArticles() {
+    const articles = fs.readdirSync(path.join(process.cwd(), 'data/articles'))
+  
+    return articles.reduce((allArticles: any, articleSlug: any) => {
+      // get parsed data from mdx files in the "articles" dir
+      const source = fs.readFileSync(
+        path.join(process.cwd(), 'data/articles', articleSlug),
+        'utf-8'
+      )
+      const { data } = matter(source)
+  
+      return [
+        {
+          ...data,
+          slug: articleSlug.replace('.mdx', ''),
+          //readingTime: readingTime(source).text,
+        },
+        ...allArticles,
+      ]
+    }, [])
+  }
