@@ -1,4 +1,6 @@
 import { getArticleFromSlug } from "@/app/utils/mdx"
+import { remark } from 'remark';
+import html from 'remark-html';
 import Image from "next/image"
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -8,7 +10,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return article
   }
 
+  async function blah() {
+    const result = await remark().use(html).process(article.content)
+    return result.toString()
+  }
+
   const article = await getArticle()
+  const articleContent = await blah()
 
   return (
     <>
@@ -19,7 +27,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <Image src={article.frontmatter.coverImage} alt={article.frontmatter.title} width={500} height={200} />
       <p className="caption">{article.frontmatter.coverImage}</p>
       <hr />
-      <p className="body1">body 1</p>
+      <div dangerouslySetInnerHTML={{ __html: articleContent }} />
     </>
   )
 }
