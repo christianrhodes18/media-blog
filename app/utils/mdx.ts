@@ -27,7 +27,7 @@ interface MarkdownData {
 }
 
 
-export async function getArticleFromSlug(slug: MarkdownData) {
+export async function getArticleFromSlug(slug: String) {
     const articleDir = path.join(articlesPath, `${slug}.mdx`)
     const source = fs.readFileSync(articleDir)
     const { content, data } = matter(source)
@@ -39,6 +39,8 @@ export async function getArticleFromSlug(slug: MarkdownData) {
         title: data.title,
         date: data.date,
         author: data.author,
+        excerpt: data.excerpt,
+        coverImage: data.coverImage,
         //publishedAt: data.publishedAt,
         //readingTime: readingTime(source).text,
         ...data,
