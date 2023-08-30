@@ -10,13 +10,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return article
   }
 
-  async function blah() {
+  async function getArticleContents() {
     const result = await remark().use(html).process(article.content)
     return result.toString()
   }
 
   const article = await getArticle()
-  const articleContent = await blah()
+  const articleContent = await getArticleContents()
 
   return (
     <>
