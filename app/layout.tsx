@@ -21,12 +21,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html suppressHydrationWarning>
-      <Navigation />
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navigation />
+          {children}
+          <Footer />
+        </Providers>
       </body>
-      <Footer />
     </html>
+    // <>
+    //   {/* <Navigation /> */}
+    //   <body>
+    //     <Providers>{children}</Providers>
+    //   </body>
+    //   {/* <Footer /> */}
+    // </>
   )
 }

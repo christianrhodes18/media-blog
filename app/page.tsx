@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { getAllArticles } from "./utils/mdx"
+import DarkModeButton from "./components/DarkModeButton"
+import ThemeChanger from "./components/ThemeChanger"
 
 export default async function Home() {
   const articles = await getAllArticles()
@@ -27,6 +29,12 @@ export default async function Home() {
       <p className="body2">body 2</p>
       <p className="caption">caption</p>
       <p className="my_overline">overline</p> */}
+      {/* <div className="flex items-center justify-center h-screen flex-col">
+        <h2 className={`text-4xl sm:text-6xl md:text-9xl text-center text-gray-800`}>LIGHT MODE</h2>
+        <h2 className={`text-4xl sm:text-6xl md:text-9xl text-center text-white `}>DARK MODE</h2>
+        <DarkModeButton/>
+      </div> */}
+      {/* <ThemeChanger /> */}
       <div>
         {posts.map((frontMatter) => {
           return (
