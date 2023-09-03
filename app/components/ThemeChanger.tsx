@@ -21,8 +21,8 @@ const ThemeChanger: React.FC = () => {
   return (
     <div className="w-[64px] h-[32px] bg-darkText dark:bg-black rounded-full flex items-center">
       {isDark
-        ? <Image src={moon_icon} alt="moon icon" width={14} height={14} className="absolute ml-10 pointer-events-none animate-pulse" />
-        : <Image src={sun_icon} alt="sun icon" width={18} height={18} className="absolute ml-2 pointer-events-none animate-pulse" />
+        ? <Image src={moon_icon} alt="moon icon" width={14} height={14} className="absolute ml-10 pointer-events-none animate-[pulse_limited]" />
+        : <Image src={sun_icon} alt="sun icon" width={18} height={18} className="absolute ml-2 pointer-events-none animate-[pulse_limited]" />
       }
       <button 
         className={`bg-darkBG rounded-full w-6 h-6 mx-1 ease-linear duration-150 ${isDark ? '' : 'translate-x-8'}`} 
