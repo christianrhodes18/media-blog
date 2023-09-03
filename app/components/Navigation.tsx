@@ -1,10 +1,10 @@
 import React from 'react';
 import ThemeChanger from './ThemeChanger';
+import LanguageChanger from './LanguageChanger';
 
 const Navigation: React.FC = () => {
   return (
-    // <h3>nav here</h3>
-    <nav className="bg-gray-800 text-white p-4">
+    <nav className="p-4 w-full">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div>
@@ -26,7 +26,7 @@ const Navigation: React.FC = () => {
 
         {/* Buttons */}
         <div className="flex space-x-4">
-          <button className="px-3 py-2 border rounded hover:bg-gray-700">Language</button>
+          {/* <LanguageChanger /> */}
           <ThemeChanger />
         </div>
       </div>

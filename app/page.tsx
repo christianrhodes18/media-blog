@@ -1,7 +1,5 @@
 import Link from "next/link"
 import { getAllArticles } from "./utils/mdx"
-import DarkModeButton from "./components/DarkModeButton"
-import ThemeChanger from "./components/ThemeChanger"
 
 export default async function Home() {
   const articles = await getAllArticles()
