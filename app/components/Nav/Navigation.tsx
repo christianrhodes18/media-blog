@@ -1,11 +1,15 @@
+'use client'
 import React from 'react';
 import ThemeChanger from './ThemeChanger';
+import MobileNav from './MobileNav';
 import LanguageChanger from './LanguageChanger';
+import Image from 'next/image'
 
 const Navigation: React.FC = () => {
+  
   return (
     <nav className="p-4 w-full">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
           <a href="/" className='flex items-center'>
@@ -19,16 +23,25 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Links */}
-        <div className="space-x-4">
+        <div className="space-x-4 hidden sm:flex">
           <a href="#" className="hover:text-gray-300">Articles</a>
           <a href="/about" className="hover:text-gray-300">About</a>
         </div>
 
         {/* Buttons */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 my-auto">
           {/* <LanguageChanger /> */}
-          <ThemeChanger />
+          <div className="relative top-2 sm:top-0">
+            <ThemeChanger />
+          </div>
+          <div className="flex sm:hidden">
+            <MobileNav />
+          </div>
         </div>
+
+        
+
+
       </div>
     </nav>
   );

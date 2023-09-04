@@ -18,6 +18,9 @@ const config: Config = {
       darkBG: '#2D2C2E',
       ...colors
     },
+    screens: {
+      'sm': '450px', //640 default
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

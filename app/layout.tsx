@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Providers } from './providers'
 import { Inter, Crimson_Text } from 'next/font/google'
-import Navigation from './components/Navigation'
+import Navigation from './components/Nav/Navigation'
 import Footer from './components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
