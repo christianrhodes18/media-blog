@@ -4,7 +4,10 @@
 
 @layer base{
   body {
-      @apply bg-lightBG text-lightText dark:bg-darkBG dark:text-darkText;
+    @apply bg-lightBG text-lightText dark:bg-darkBG dark:text-darkText;
+  }
+  a {
+    @apply hover:text-lightTextAccent dark:hover:text-darkTextAccent;
   }
 }
 

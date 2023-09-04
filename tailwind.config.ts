@@ -13,8 +13,10 @@ const config: Config = {
   theme: {
     colors: {
       lightText: '#2D2C2E',
+      lightTextAccent: '#6C6C6C',
       lightBG: '#FFFFFF',
       darkText: '#F5F4F6',
+      darkTextAccent: '#9CA3AF',
       darkBG: '#2D2C2E',
       ...colors
     },

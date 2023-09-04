@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           />
         </div>
         <div className="mx-auto lg:my-auto body2 py-4">
-          <p>&copy; {year} Site Name. All rights reserved.</p>
+          <p>&copy; {year} Site Name. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
