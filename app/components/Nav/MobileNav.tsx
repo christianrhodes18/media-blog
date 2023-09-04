@@ -55,13 +55,19 @@ const MobileNav = () => {
                             </button>
                         </div>
                         <div className="flex flex-col justify-center">
-                            <h5 className="text-center">Site Name</h5>
+                        <button onClick={() => setToggleMenu(false)}>
+                            <Link className="mx-auto font-bold text-2xl" href="/">Site Name</Link>
+                        </button>
                             <ul className="mt-14 text-center">
                                 <li className="mb-3">
-                                    <Link href="/posts"><h5 className="">Articles</h5></Link>
+                                    <button onClick={() => setToggleMenu(false)}>
+                                        <Link href="/posts"><h5 className="">Articles</h5></Link>
+                                    </button>
                                 </li>
                                 <li className="mb-3">
-                                    <Link href="/about"><h5 className="">About</h5></Link>
+                                    <button onClick={() => setToggleMenu(false)}>
+                                        <Link href="/about"><h5 className="">About</h5></Link>
+                                    </button>
                                 </li>
                             </ul>
                         </div>

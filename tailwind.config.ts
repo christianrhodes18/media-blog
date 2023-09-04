@@ -22,6 +22,9 @@ const config: Config = {
     },
     screens: {
       'sm': '450px', //640 default
+      'md': '768px', //768 default
+      'lg': '1024px', //1024 default
+      'xl': '1280px', //1280 default
     },
     extend: {
       backgroundImage: {
