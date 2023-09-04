@@ -29,12 +29,12 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Buttons */}
-        <div className="flex space-x-4 my-auto">
+        <div className="flex my-auto">
           {/* <LanguageChanger /> */}
           <div className="relative top-2 sm:top-0">
             <ThemeChanger />
           </div>
-          <div className="flex sm:hidden">
+          <div className="flex sm:hidden px-0">
             <MobileNav />
           </div>
         </div>
