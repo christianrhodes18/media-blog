@@ -1,8 +1,8 @@
 
 export default function Posts() {
     return (
-      <>
-        <h1>all posts</h1>
-      </>
+      <div className="h-screen">
+        <h2>all posts</h2>
+      </div>
     )
   }

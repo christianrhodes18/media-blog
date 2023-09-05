@@ -24,7 +24,7 @@ const Navigation: React.FC = () => {
 
         {/* Links */}
         <div className="space-x-4 hidden sm:flex">
-          <a href="#" className="hover:text-gray-300">Articles</a>
+          <a href="/posts" className="hover:text-gray-300">Articles</a>
           <a href="/about" className="hover:text-gray-300">About</a>
         </div>
 
@@ -38,10 +38,6 @@ const Navigation: React.FC = () => {
             <MobileNav />
           </div>
         </div>
-
-        
-
-
       </div>
     </nav>
   );
