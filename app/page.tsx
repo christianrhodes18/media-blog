@@ -17,7 +17,7 @@ export default async function Home() {
   const posts = articles.reverse()
     
   return (
-    <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto">
+    <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto md:mt-12 mb-12">
       {/* desktop two columns */}
       <div className="flex flex-col md:flex-row md:gap-20 gap-4">
         {/* desktop left column */}
@@ -31,33 +31,30 @@ export default async function Home() {
           <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
         </div>
         {/* desktop right column */}
-        <div className="md:basis-3/5">
-          <ArticleArchiveCurvy 
-            title="Super Interesting Blog Title"
-            tags={["tag1", "tag2"]}
-            publishDate="2021-10-10"
-          />
+        <div className="md:basis-3/5 flex flex-col gap-8">
+          {posts.map((frontMatter) => {
+          return (
+              <Link href={`/posts/${frontMatter.slug}`} passHref>
+                <ArticleArchiveCurvy 
+                  title={frontMatter.title}
+                  tags={["tag1", "tag2"]}
+                  publishDate="2021-10-10"
+                  image="/posts_images/test-post/alan_wake_header.jpg"
+                />
+
+                {/* <div>
+                  <h3 className="title">{frontMatter.title}</h3>
+                  <p className="body1">{frontMatter.excerpt}</p> */}
+                  {/* <p className="date">
+                    {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                    {frontMatter.readingTime}
+                  </p> */}
+                {/* </div> */}
+              </Link>
+            )
+          })}
         </div>
       </div>
-      
-
-
-
-
-      {posts.map((frontMatter) => {
-        return (
-          <Link href={`/posts/${frontMatter.slug}`} passHref>
-            <div>
-              <h3 className="title">{frontMatter.title}</h3>
-              <p className="body1">{frontMatter.excerpt}</p>
-              {/* <p className="date">
-                {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
-                {frontMatter.readingTime}
-              </p> */}
-            </div>
-          </Link>
-        )
-      })}
     </div>
   )
 }
