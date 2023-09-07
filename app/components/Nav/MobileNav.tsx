@@ -45,8 +45,9 @@ const MobileNav = () => {
             {/* Mobile menu, show/hide based on menu state. */}
             {toggleMenu && (
                 <div className="relative z-50">
-                    <div className={`fixed inset-0 opacity-[98%] ${isDark ? 'bg-darkBG' : 'bg-lightBG'}`}></div>
-                    <nav className="fixed top-0 left-0 bottom-0 right-0 flex flex-col w-full max-w-sm py-6 px-6 overflow-y-auto">
+                    <div className={`fixed inset-0 max-w-sm ml-auto opacity-[98%] ${isDark ? 'bg-darkBG' : 'bg-lightBG'}`}></div>
+                    {/* add a click outside to close */}
+                    <nav className="fixed top-0 bottom-0 right-0 flex flex-col w-full max-w-sm py-6 px-6 overflow-y-auto">
                         <div className="flex items-center justify-start mb-16">
                             <button className={`${isDark ? 'hover:text-darkTextAccent' : 'hover:text-lightTextAccent'}`} onClick={() => setToggleMenu(false)}>
                                 <svg className="h-6 w-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

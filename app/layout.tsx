@@ -26,17 +26,10 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navigation />
-          {children}
+            {children}
           <Footer />
         </Providers>
       </body>
     </html>
-    // <>
-    //   {/* <Navigation /> */}
-    //   <body>
-    //     <Providers>{children}</Providers>
-    //   </body>
-    //   {/* <Footer /> */}
-    // </>
   )
 }
