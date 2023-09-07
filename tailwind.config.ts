@@ -15,13 +15,15 @@ const config: Config = {
       lightText: '#2D2C2E',
       lightTextAccent: '#6C6C6C',
       lightBG: '#FFFFFF',
+      lightBGAccent: '#F5F4F6',
       darkText: '#F5F4F6',
       darkTextAccent: '#9CA3AF',
-      darkBG: '#2D2C2E',
+      darkBG: '#161616',
+      darkBGAccent: "#2D2C2E",
       ...colors
     },
     screens: {
-      'sm': '450px', //640 default
+      'sm': '600px', //640 default
       'md': '768px', //768 default
       'lg': '1024px', //1024 default
       'xl': '1280px', //1280 default

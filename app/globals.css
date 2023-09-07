@@ -9,6 +9,9 @@
   a {
     @apply hover:text-lightTextAccent dark:hover:text-darkTextAccent;
   }
+  .cardBGLightDark {
+    @apply bg-lightBGAccent dark:bg-darkBGAccent;
+  }
 }
 
 
@@ -27,19 +30,19 @@ h2 {
   line-height: 1.3em;
 }
 h3 {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 48px;
 }
 h4 {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 36px;
 }
 h5 {
-  font-weight: 'bold';
+  font-weight: 700;
   font-size: 24px;
 }
 .h5NoBold {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 24px;
 }
 h6 {
@@ -47,23 +50,23 @@ h6 {
   font-size: 20px;
 }
 .subtitle1 {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 16px;
 }
 .subtitle2 {
-  font-weight: 'medium';
+  font-weight: 500;
   font-size: 14px;
 }
 .body1 {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 18px;
 }
 .body2 {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 14px;
 }
 .caption {
-  font-weight: 'normal';
+  font-weight: 400;
   font-size: 12px;
 }
 .my_overline {
@@ -78,10 +81,10 @@ h6 {
 
 
 
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   h2 {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 700;
   }
   h3 {
     font-size: 36px;

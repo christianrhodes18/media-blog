@@ -17,11 +17,11 @@ export default async function Home() {
   const posts = articles.reverse()
     
   return (
-    <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto md:mt-12 mb-12">
+    <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto sm:mt-12 mb-12">
       {/* desktop two columns */}
-      <div className="flex flex-col md:flex-row md:gap-20 gap-4">
+      <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
         {/* desktop left column */}
-        <div className="md:basis-2/5">
+        <div className="lg:basis-2/5">
           <div className="flex flex-row justify-center align-middle gap-4 mb-5">
             <Image src={CharacterGif} alt="character" width={60} height={70} />
             <h6 className="my-auto">Welcome</h6>
@@ -31,14 +31,15 @@ export default async function Home() {
           <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
         </div>
         {/* desktop right column */}
-        <div className="md:basis-3/5 flex flex-col gap-8">
+        <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0 gap-8">
           {posts.map((frontMatter) => {
           return (
               <Link href={`/posts/${frontMatter.slug}`} passHref>
                 <ArticleArchiveCurvy 
                   title={frontMatter.title}
-                  tags={["tag1", "tag2"]}
-                  publishDate="2021-10-10"
+                  excerpt={frontMatter.excerpt}
+                  tags={["horror", "action"]}
+                  publishDate="August 18, 2023"
                   image="/posts_images/test-post/alan_wake_header.jpg"
                 />
 
