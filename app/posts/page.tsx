@@ -22,7 +22,7 @@ export default async function Posts() {
           {posts.map((frontMatter: { slug: any; title: string; excerpt: string }) => {
           return (
               <Link href={`/posts/${frontMatter.slug}`} passHref>
-                <ArticleArchiveCurvy 
+                <ArticleArchiveBoxy 
                   title={frontMatter.title}
                   excerpt={frontMatter.excerpt}
                   tags={["horror", "action"]}

@@ -3,6 +3,7 @@ import Image from "next/image"
 import { getAllArticles } from "./utils/mdx"
 import CharacterGif from "@/public/character.gif"
 import ArticleArchiveCurvy from "./components/Cards/ArticleArchiveCurvy"
+import ArticleVisual from "./components/Cards/ArticleVisual"
 
 export default async function Home() {
   const articles = await getAllArticles()
@@ -33,15 +34,35 @@ export default async function Home() {
         {/* desktop right column */}
         <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0 gap-8">
           {posts.map((frontMatter) => {
-          return (
-              <Link href={`/posts/${frontMatter.slug}`} passHref>
-                <ArticleArchiveCurvy 
-                  title={frontMatter.title}
-                  excerpt={frontMatter.excerpt}
-                  tags={["horror", "action"]}
-                  publishDate="August 18, 2023"
-                  image="/posts_images/test-post/alan_wake_header.jpg"
-                />
+            return (
+              <>
+                <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
+                  <ArticleArchiveCurvy 
+                    title={frontMatter.title}
+                    excerpt={frontMatter.excerpt}
+                    tags={["horror", "action"]}
+                    publishDate="August 18, 2023"
+                    image="/posts_images/test-post/alan_wake_header.jpg"
+                  />
+
+                  {/* <div>
+                    <h3 className="title">{frontMatter.title}</h3>
+                    <p className="body1">{frontMatter.excerpt}</p> */}
+                    {/* <p className="date">
+                      {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                      {frontMatter.readingTime}
+                    </p> */}
+                  {/* </div> */}
+                </Link>
+                <Link href={`/posts/${frontMatter.slug}`} passHref className="hidden lg:block">
+                  <ArticleVisual
+                    size="small"
+                    title={frontMatter.title}
+                    excerpt={frontMatter.excerpt}
+                    tags={["horror", "action"]}
+                    publishDate="August 18, 2023"
+                    image="/posts_images/test-post/alan_wake_header.jpg"
+                  />
 
                 {/* <div>
                   <h3 className="title">{frontMatter.title}</h3>
@@ -52,6 +73,7 @@ export default async function Home() {
                   </p> */}
                 {/* </div> */}
               </Link>
+            </>
             )
           })}
         </div>
