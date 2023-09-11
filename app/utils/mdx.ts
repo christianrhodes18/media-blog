@@ -20,13 +20,6 @@ export async function getSlug() {
   })
 }
 
-interface MarkdownData {
-    title: string;
-    date: string;
-    author: string;
-}
-
-
 export async function getArticleFromSlug(slug: String) {
     const articleDir = path.join(articlesPath, `${slug}.mdx`)
     const source = fs.readFileSync(articleDir)
@@ -41,6 +34,14 @@ export async function getArticleFromSlug(slug: String) {
         author: data.author,
         excerpt: data.excerpt,
         coverImage: data.coverImage,
+        tags: data.tags,
+        subjectGenre: data.subjectGenre,
+        subjectCreator: data.subjectCreator,
+        subjectFranchise: data.subjectFranchise,
+        song: data.song,
+        songName: data.songName,
+        songAuthor: data.songAuthor,
+        songCover: data.songCover,
         //publishedAt: data.publishedAt,
         //readingTime: readingTime(source).text,
         ...data,

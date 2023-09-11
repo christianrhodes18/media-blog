@@ -19,15 +19,22 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const articleContent = await getArticleContents()
 
   return (
-    <>
-      <p className="subtitle1">Tags: </p> 
-      <h2>{article.frontmatter.title}</h2>
-      <h5>{article.frontmatter.excerpt}</h5>
-      <h6>Published: </h6>
-      <Image src={article.frontmatter.coverImage} alt={article.frontmatter.title} width={500} height={200} />
-      <p className="caption">{article.frontmatter.coverImage}</p>
-      <hr />
-      <div dangerouslySetInnerHTML={{ __html: articleContent }} />
-    </>
+    <main className="my-4 max-w-[620px] mx-auto">
+      {/* list of tags */}
+      <div className="w-[95%] sm:w-full mx-auto my_overline flex flex-wrap gap-4">
+        {article.frontmatter.tags.map((tag: string) => {
+          return (
+            <p>{tag}</p>
+          )}
+        )}
+      </div> 
+      <h3 className="w-[95%] sm:w-full mx-auto mt-2">{article.frontmatter.title}</h3>
+      <h6 className="w-[95%] sm:w-full mx-auto">{article.frontmatter.excerpt}</h6>
+      <p className="w-[95%] sm:w-full mx-auto my-3 subtitle1">Published: </p>
+      <Image className="mt-3 w-full h-auto" src={article.frontmatter.coverImage} alt={article.frontmatter.title} width={500} height={200} />
+      <p className="w-[95%] sm:w-full mx-auto my-2 caption">{article.frontmatter.coverImage}</p>
+      <hr className="w-[95%] sm:w-full mx-auto mb-6" />
+      <article className="w-[95%] sm:w-full mx-auto body1" dangerouslySetInnerHTML={{ __html: articleContent }} />
+    </main>
   )
 }
