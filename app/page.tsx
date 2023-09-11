@@ -58,11 +58,11 @@ export default async function Home() {
                 </Link>
               </div>
               <div key={nextPost.id} className="w-1/2">
-                <Link href={`/posts/${post.slug}`} passHref >  
+                <Link href={`/posts/${nextPost.slug}`} passHref >  
                   <ArticleVisual
                     size="small"
-                    title={post.title}
-                    excerpt={post.excerpt}
+                    title={nextPost.title}
+                    excerpt={nextPost.excerpt}
                     tags={["horror", "action"]}
                     publishDate="August 18, 2023"
                     image="/posts_images/test-post/alan_wake_header.jpg"
