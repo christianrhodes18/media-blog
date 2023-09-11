@@ -16,6 +16,84 @@ export default async function Home() {
     })
 
   const posts = articles.reverse()
+
+  const renderedPostsGallery = (posts: any) => {
+    const renderedPosts: JSX.Element[] = []
+
+    for (let i = 0; i < posts.length; i++) {
+      const post = posts[i];
+      if (i % 3 === 0) {
+        // Render the first component for every 3rd post (0, 3, 6, etc.)
+        renderedPosts.push(
+          <div key={post.id} className="w-full">
+            <Link href={`/posts/${post.slug}`} passHref >
+              <ArticleVisual
+                size="large"
+                title={post.title}
+                excerpt={post.excerpt}
+                tags={["horror", "action"]}
+                publishDate="August 18, 2023"
+                image="/posts_images/test-post/alan_wake_header.jpg"
+              />
+            </Link>
+          </div>
+        );
+      } else {
+        // Render the second component for other posts with half width
+        // Check if the next post exists and render both side-by-side
+        const nextPost = posts[i + 1];
+        if (nextPost) {
+          renderedPosts.push(
+            <div className="flex flex-row gap-2 my-2">
+              <div key={post.id} className="w-1/2">
+                <Link href={`/posts/${post.slug}`} passHref >  
+                  <ArticleVisual
+                    size="small"
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    tags={["horror", "action"]}
+                    publishDate="August 18, 2023"
+                    image="/posts_images/test-post/alan_wake_header.jpg"
+                  />
+                </Link>
+              </div>
+              <div key={nextPost.id} className="w-1/2">
+                <Link href={`/posts/${post.slug}`} passHref >  
+                  <ArticleVisual
+                    size="small"
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    tags={["horror", "action"]}
+                    publishDate="August 18, 2023"
+                    image="/posts_images/test-post/alan_wake_header.jpg"
+                  />
+                </Link>
+              </div>
+            </div>
+          );
+          i++; // Increment the index by 1 to skip the next post
+        } else {
+          // If there's no next post, render large card
+          renderedPosts.push(
+            <div key={post.id} className="w-full">
+              <Link href={`/posts/${post.slug}`} passHref >
+                <ArticleVisual
+                  size="large"
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  tags={["horror", "action"]}
+                  publishDate="August 18, 2023"
+                  image="/posts_images/test-post/alan_wake_header.jpg"
+                />
+              </Link>
+            </div>
+          );
+        }
+      }
+    }
+
+    return renderedPosts;
+  }
     
   return (
     <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto sm:mt-12 mb-12">
@@ -32,10 +110,11 @@ export default async function Home() {
           <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
         </div>
         {/* desktop right column */}
-        <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0 gap-8">
-          {posts.map((frontMatter) => {
-            return (
-              <>
+        <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
+          {/* mobile articles - one column */}
+          <div className="lg:hidden flex flex-col gap-8">
+            {posts.map((frontMatter: { slug: any; title: string; excerpt: string }) => {
+              return (
                 <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
                   <ArticleArchiveCurvy 
                     title={frontMatter.title}
@@ -44,38 +123,20 @@ export default async function Home() {
                     publishDate="August 18, 2023"
                     image="/posts_images/test-post/alan_wake_header.jpg"
                   />
-
                   {/* <div>
-                    <h3 className="title">{frontMatter.title}</h3>
-                    <p className="body1">{frontMatter.excerpt}</p> */}
                     {/* <p className="date">
                       {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
                       {frontMatter.readingTime}
                     </p> */}
                   {/* </div> */}
                 </Link>
-                <Link href={`/posts/${frontMatter.slug}`} passHref className="hidden lg:block">
-                  <ArticleVisual
-                    size="small"
-                    title={frontMatter.title}
-                    excerpt={frontMatter.excerpt}
-                    tags={["horror", "action"]}
-                    publishDate="August 18, 2023"
-                    image="/posts_images/test-post/alan_wake_header.jpg"
-                  />
-
-                {/* <div>
-                  <h3 className="title">{frontMatter.title}</h3>
-                  <p className="body1">{frontMatter.excerpt}</p> */}
-                  {/* <p className="date">
-                    {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
-                    {frontMatter.readingTime}
-                  </p> */}
-                {/* </div> */}
-              </Link>
-            </>
-            )
-          })}
+              )
+            })}
+          </div>
+          {/* desktop articles - gallery */}
+          <div className="hidden lg:flex flex-wrap">
+            {renderedPostsGallery(posts)}
+          </div>
         </div>
       </div>
     </div>
