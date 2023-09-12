@@ -33,7 +33,7 @@ export default async function Home() {
                 excerpt={post.excerpt}
                 tags={["horror", "action"]}
                 publishDate="August 18, 2023"
-                image="/posts_images/test-post/alan_wake_header.jpg"
+                image={post.coverImage}
               />
             </Link>
           </div>
@@ -53,7 +53,7 @@ export default async function Home() {
                     excerpt={post.excerpt}
                     tags={["horror", "action"]}
                     publishDate="August 18, 2023"
-                    image="/posts_images/test-post/alan_wake_header.jpg"
+                    image={post.coverImage}
                   />
                 </Link>
               </div>
@@ -65,7 +65,7 @@ export default async function Home() {
                     excerpt={nextPost.excerpt}
                     tags={["horror", "action"]}
                     publishDate="August 18, 2023"
-                    image="/posts_images/test-post/alan_wake_header.jpg"
+                    image={nextPost.coverImage}
                   />
                 </Link>
               </div>
@@ -83,7 +83,7 @@ export default async function Home() {
                   excerpt={post.excerpt}
                   tags={["horror", "action"]}
                   publishDate="August 18, 2023"
-                  image="/posts_images/test-post/alan_wake_header.jpg"
+                  image={post.coverImage}
                 />
               </Link>
             </div>
@@ -113,7 +113,7 @@ export default async function Home() {
         <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
           {/* mobile articles - one column */}
           <div className="lg:hidden flex flex-col gap-8">
-            {posts.map((frontMatter: { slug: any; title: string; excerpt: string }) => {
+            {posts.map((frontMatter: { slug: any; title: string; excerpt: string, coverImage: string }) => {
               return (
                 <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
                   <ArticleArchiveCurvy 
@@ -121,7 +121,7 @@ export default async function Home() {
                     excerpt={frontMatter.excerpt}
                     tags={["horror", "action"]}
                     publishDate="August 18, 2023"
-                    image="/posts_images/test-post/alan_wake_header.jpg"
+                    image={frontMatter.coverImage}
                   />
                   {/* <div>
                     {/* <p className="date">

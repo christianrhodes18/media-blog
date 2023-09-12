@@ -1,0 +1,39 @@
+h2 {
+    margin: 3rem 0 1rem 0;
+    font-size: 40px;
+}
+h3 {
+    margin: 2rem 0 1rem 0;
+    line-height: 1.2;
+    font-size: 36px;
+}
+p {
+    margin: 1rem 0 1rem 0;
+}
+p a {
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0 0 0 0;
+}
+ol {
+    width: 80%;
+    margin-left: 2rem;
+    list-style: decimal;
+}
+ul {
+    width: 80%;
+    margin-left: 2rem;
+    list-style: disc;
+}
+li {
+    margin: .5rem 0 .5rem 0;
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 36px;
+    }
+    p a {
+        font-size: 10px;
+    }
+}

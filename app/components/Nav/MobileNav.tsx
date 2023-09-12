@@ -59,7 +59,7 @@ const MobileNav = () => {
                         <button onClick={() => setToggleMenu(false)}>
                             <Link className="mx-auto font-bold text-2xl" href="/">Site Name</Link>
                         </button>
-                            <ul className="mt-14 text-center">
+                            <ul className="mt-14 text-center list-none">
                                 <li className="mb-3">
                                     <button onClick={() => setToggleMenu(false)}>
                                         <Link href="/posts"><h5 className="">Articles</h5></Link>

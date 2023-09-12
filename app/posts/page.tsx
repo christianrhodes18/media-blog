@@ -19,7 +19,7 @@ export default async function Posts() {
         <h2 className="text-center mb-12">All Articles</h2>
         <hr className="mb-8" />
         <div className="flex flex-col mx-auto md:mx-0 gap-6">
-          {posts.map((frontMatter: { slug: any; title: string; excerpt: string }) => {
+          {posts.map((frontMatter: { slug: any; title: string; excerpt: string, coverImage: string }) => {
           return (
               <Link href={`/posts/${frontMatter.slug}`} passHref>
                 <ArticleArchiveBoxy 
@@ -27,7 +27,7 @@ export default async function Posts() {
                   excerpt={frontMatter.excerpt}
                   tags={["horror", "action"]}
                   publishDate="August 18, 2023"
-                  image="/posts_images/test-post/alan_wake_header.jpg"
+                  image={frontMatter.coverImage}
                 />
 
                 {/* <div>

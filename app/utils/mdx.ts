@@ -34,6 +34,7 @@ export async function getArticleFromSlug(slug: String) {
         author: data.author,
         excerpt: data.excerpt,
         coverImage: data.coverImage,
+        coverImageCredit: data.coverImageCredit,
         tags: data.tags,
         subjectGenre: data.subjectGenre,
         subjectCreator: data.subjectCreator,
