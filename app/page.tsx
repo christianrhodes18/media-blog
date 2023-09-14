@@ -96,7 +96,7 @@ export default async function Home() {
   }
     
   return (
-    <div className="w-[90%] md:w-[85%] max-w-5xl mx-auto sm:mt-12 mb-12">
+    <div className="w-[90%] md:w-[85%] max-w-6xl mx-auto sm:mt-12 mb-12">
       {/* desktop two columns */}
       <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
         {/* desktop left column */}

@@ -26,7 +26,7 @@ const ArticleVisual:React.FC<ArticleProps> = ({ size, title, excerpt, tags, publ
                             }
                         )}
                     </div>
-                    <h4 className={`text-white my-2 ${size === 'small' ? 'text-xl' : ''}`}>{title}</h4>
+                    <h4 className={`text-white my-2 lg:pr-2 ${size === 'small' ? 'text-xl' : ''}`}>{title}</h4>
                     <p className="subtitle1 text-white">{publishDate}</p>
                     <div className={`absolute bottom-0 ${size === 'small' ? '' : ''}`}>
                         <Button />
