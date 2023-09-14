@@ -11,9 +11,9 @@ interface ArticleProps {
 const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publishDate, image }) => {
     return (
         <>
-            <div className="sm:hidden relative z-10 w-full max-w-sm h-[270px] rounded-3xl">
+            <div className="sm:hidden relative z-10 w-full max-w-sm h-[300px] rounded-3xl"> {/* h-[270px] */}
                 <Image className="relative rounded-xl overflow-hidden object-cover h-full" src={image} alt="header image" width={400} height="270" />
-                <div className="flex flex-row gap-2 absolute bottom-[6.5rem] caption px-2">
+                <div className="flex flex-row gap-2 absolute bottom-[8rem] caption px-2"> {/* bottom-[6.5rem] */}
                     {tags.map((tag) => {
                             return (
                                 <p className="rounded-xl cardBGLightDark py-1 px-2">{tag}</p>
@@ -21,18 +21,18 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
                         }
                     )}
                 </div>
-                <div className="absolute cardBGLightDark opacity-80 rounded-b-xl h-24 w-full bottom-0 px-2 py-1">
-                    <h5>{title}</h5>
-                    <p className="subtitle1">{publishDate}</p>
+                <div className="absolute cardBGLightDark opacity-80 rounded-b-xl h-[7.5rem] w-full bottom-0 px-2 py-1">
+                    <h5 className="py-1">{title}</h5>
                 </div>
+                <p className="subtitle1 absolute bottom-0 p-2">{publishDate}</p>
             </div>
 
-            <div className="hidden sm:flex flex-row mx-auto rounded-xl cardBGLightDark h-[360px] w-5/6">
-                <div className='basis-1/2 p-8'>
+            <div className="hidden sm:flex flex-row mx-auto rounded-xl cardBGLightDark h-auto w-5/6"> {/* h-[360px] */}
+                <div className='basis-1/2 px-4 pt-4 pb-2 md:px-8 md:pt-8 md:pb-4'>
                     <div className="flex flex-col">
                         <h5 className="mb-3">{title}</h5>
-                        <p className="body1 h-56">{excerpt}</p>
-                        <p className="subtitle1">{publishDate}</p>
+                        <p className="body1">{excerpt}</p>
+                        <p className="subtitle2 mt-4 opacity-70">{publishDate}</p>
                     </div>
                 </div>
                 <div className='basis-1/2'>
