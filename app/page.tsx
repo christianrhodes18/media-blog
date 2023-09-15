@@ -101,7 +101,7 @@ export default async function Home() {
       <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
         {/* desktop left column */}
         <div className="lg:basis-2/5">
-          <div className="flex flex-row justify-center align-middle gap-4 mb-5">
+          <div className="flex flex-row justify-center lg:justify-start align-middle gap-4 mb-5">
             <Image src={CharacterGif} alt="character" width={60} height={70} />
             <h6 className="my-auto">Welcome</h6>
           </div>

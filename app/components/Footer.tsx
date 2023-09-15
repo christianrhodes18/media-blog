@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
             <Link className='mx-auto' href="/posts">All Articles</Link>
           </div>
         </div>
-        <div className="mx-auto py-4">
+        <div className="mx-auto mt-8 lg:mt-4 py-4">
           <AuthorCredit 
             firstName="Christian"
             lastName="Rhodes"
