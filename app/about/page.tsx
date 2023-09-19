@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import AestheticsDescription from '../components/Cards/AestheticsDescription'
 
 export default function About() {
     return (
@@ -27,7 +28,7 @@ export default function About() {
 
         {/* categories section */}
         <section className="mt-10 lg:mt-32">
-          <h2>Categories</h2>
+          <AestheticsDescription />
         </section>
       </main>
     )

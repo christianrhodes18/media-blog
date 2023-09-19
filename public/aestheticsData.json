@@ -1,0 +1,41 @@
+{
+    "Cyberpunk": {
+      "name": "Cyberpunk",
+      "description": "Cyberpunk aesthetics are characterized by futuristic, dystopian settings with advanced technology and a gritty, neon-lit atmosphere.",
+      "image": "cyberpunk_image.jpg",
+      "examples": [
+        {
+          "category": "Movies",
+          "examples": ["Blade Runner", "The Matrix", "Ghost in the Shell"]
+        },
+        {
+          "category": "Video Games",
+          "examples": ["Deus Ex", "System Shock", "Cyberpunk 2077"]
+        },
+        {
+          "category": "Books",
+          "examples": ["Neuromancer", "Snow Crash", "Altered Carbon"]
+        }
+      ]
+    },
+    "Steampunk": {
+      "name": "Steampunk",
+      "description": "Steampunk combines Victorian-era aesthetics with steam-powered machinery and retro-futuristic elements.",
+      "image": "steampunk_image.jpg",
+      "examples": [
+        {
+          "category": "Movies",
+          "examples": ["Wild Wild West", "The League of Extraordinary Gentlemen", "Stardust"]
+        },
+        {
+          "category": "Video Games",
+          "examples": ["Bioshock Infinite", "Dishonored", "Arcanum: Of Steamworks and Magick Obscura"]
+        },
+        {
+          "category": "Books",
+          "examples": ["The Difference Engine", "Perdido Street Station", "Leviathan"]
+        }
+      ]
+    }
+  }
+  
