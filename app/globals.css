@@ -85,6 +85,9 @@ h6 {
 
 
 @media (max-width: 600px) {
+  h1 {
+    font-size: 48px;
+  }
   h2 {
     font-size: 40px;
     font-weight: 700;

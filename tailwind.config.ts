@@ -20,6 +20,7 @@ const config: Config = {
       darkTextAccent: '#9CA3AF',
       darkBG: '#161616',
       darkBGAccent: "#2D2C2E",
+      primaryPurple: "#B598C3",
       ...colors
     },
     screens: {
