@@ -53,32 +53,39 @@ const AestheticsDescription: React.FC = () => {
             </div>
             {/* aesthetics cards */}
             <div className="">
-                {Object.keys(data).map((aestheticName) => {
+                {Object.keys(data).map((aestheticName, index) => {
                     const aesthetic = data[aestheticName];
                     return (
                         <div key={aestheticName}>
-                            <h3 className="">{aesthetic.name}</h3>
-                            <p className="mt-3">{aesthetic.description}</p>
-                            <img className="mt-6" src={aesthetic.image} alt={aesthetic.name} />
+                            <div className={`block md:flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                                <div className="md:basis-3/5">
+                                    <h3 className="">{aesthetic.name}</h3>
+                                    <p className="mt-3">{aesthetic.description}</p>
+                                    <img className="mt-6 md:hidden" src={aesthetic.image} alt={aesthetic.name} />
 
-                            <div className="w-11/12 sm:w-full mx-auto">
-                                {aesthetic.examples.map((exampleCategory) => (
-                                <div key={exampleCategory.category} className="mt-6">
-                                    <h6 className="mt-3 font-bold">{exampleCategory.category}</h6>
-                                    <ul>
-                                    {exampleCategory.examples.map((example) => (
-                                        <li key={example} className="my_overline">
-                                            {example}
-                                        </li>
-                                    ))}
-                                    </ul>
+                                    <div className="w-11/12 sm:w-full mx-auto min-[550px]:flex min-[550px]:flex-row min-[550px]:justify-between min-[550px]:gap-8">
+                                        {aesthetic.examples.map((exampleCategory) => (
+                                        <div key={exampleCategory.category} className="mt-6">
+                                            <h6 className="mt-3 font-bold">{exampleCategory.category}</h6>
+                                            <ul>
+                                            {exampleCategory.examples.map((example) => (
+                                                <li key={example} className="my_overline list-disc">
+                                                    {example}
+                                                </li>
+                                            ))}
+                                            </ul>
+                                        </div>
+                                        ))}
+                                    </div>
+                                    <a href={`/aesthetics/${aesthetic.name.toLowerCase()}`} className="flex mt-6 mx-auto justify-center w-4/5 bg-darkBGAccent px-4 py-2 rounded-lg">
+                                        <button className="text-darkText subtitle1">
+                                            {`Read ${aesthetic.name} Articles`}
+                                        </button>
+                                    </a>
                                 </div>
-                                ))}
-                                <a href={`/aesthetics/${aesthetic.name.toLowerCase()}`} className="flex mt-6 mx-auto justify-center w-4/5 cardBGLightDark px-4 py-2 rounded-lg">
-                                    <button className="text-darkText subtitle1">
-                                        {`Read ${aesthetic.name} Articles`}
-                                    </button>
-                                </a>
+                                <div className="md:basis-2/5">
+                                    <img className="hidden md:block" src={aesthetic.image} alt={aesthetic.name} />
+                                </div>
                             </div>
                             <hr className="block h-px border-t-px border-black w-full my-6" />
                         </div>
