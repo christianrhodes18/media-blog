@@ -31,7 +31,7 @@ export default async function Home() {
                 size="large"
                 title={post.title}
                 excerpt={post.excerpt}
-                tags={["horror", "action"]}
+                tags={post.tags}
                 publishDate="August 18, 2023"
                 image={post.coverImage}
               />
@@ -51,7 +51,7 @@ export default async function Home() {
                     size="small"
                     title={post.title}
                     excerpt={post.excerpt}
-                    tags={["horror", "action"]}
+                    tags={post.tags}
                     publishDate="August 18, 2023"
                     image={post.coverImage}
                   />
@@ -63,7 +63,7 @@ export default async function Home() {
                     size="small"
                     title={nextPost.title}
                     excerpt={nextPost.excerpt}
-                    tags={["horror", "action"]}
+                    tags={post.tags}
                     publishDate="August 18, 2023"
                     image={nextPost.coverImage}
                   />
@@ -81,7 +81,7 @@ export default async function Home() {
                   size="large"
                   title={post.title}
                   excerpt={post.excerpt}
-                  tags={["horror", "action"]}
+                  tags={post.tags}
                   publishDate="August 18, 2023"
                   image={post.coverImage}
                 />
@@ -113,13 +113,13 @@ export default async function Home() {
         <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
           {/* mobile articles - one column */}
           <div className="lg:hidden flex flex-col gap-8">
-            {posts.map((frontMatter: { slug: any; title: string; excerpt: string, coverImage: string }) => {
+            {posts.map((frontMatter: { slug: any; title: string; excerpt: string, coverImage: string, tags: [string] }) => {
               return (
                 <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
                   <ArticleArchiveCurvy 
                     title={frontMatter.title}
                     excerpt={frontMatter.excerpt}
-                    tags={["horror", "action"]}
+                    tags={frontMatter.tags}
                     publishDate="August 18, 2023"
                     image={frontMatter.coverImage}
                   />
