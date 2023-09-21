@@ -46,8 +46,8 @@ export default function About() {
         </section>
 
         {/* categories section */}
-        <section className="mt-10 lg:mt-32 pb-12 bg-primaryPurple text-lightText">
-          <div className="w-[95%] min-[700px]:w-full max-w-[700px] mx-auto">
+        <section className="mt-10 lg:mt-32 bg-primaryPurple text-lightText">
+          <div className="w-[95%] min-[850px]:w-full max-w-[850px] mx-auto">
             <AestheticsDescription />
           </div>
         </section>

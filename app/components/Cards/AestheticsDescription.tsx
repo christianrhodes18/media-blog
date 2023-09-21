@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react';
-import Button from '../Button';
+import Image from 'next/image'
 
 interface Example {
   category: string;
@@ -49,7 +49,7 @@ const AestheticsDescription: React.FC = () => {
             <div className="lg:pt-20">
                 <h1>About the Aesthetics</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, soluta consequuntur! Soluta iure, mollitia a autem numquam esse consectetur tempore.</p>
-                <hr className="block h-px border-t-px border-black w-full my-6" />
+                <hr className="block h-px border-t-px border-black w-full mt-6" />
             </div>
             {/* aesthetics cards */}
             <div className="">
@@ -57,11 +57,11 @@ const AestheticsDescription: React.FC = () => {
                     const aesthetic = data[aestheticName];
                     return (
                         <div key={aestheticName}>
-                            <div className={`block md:flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                            <div className={`block mt-6 md:flex md:gap-8 lg:gap-20 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                                 <div className="md:basis-3/5">
                                     <h3 className="">{aesthetic.name}</h3>
                                     <p className="mt-3">{aesthetic.description}</p>
-                                    <img className="mt-6 md:hidden" src={aesthetic.image} alt={aesthetic.name} />
+                                    <Image className="mt-6 mx-auto md:hidden rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={200} />
 
                                     <div className="w-11/12 sm:w-full mx-auto min-[550px]:flex min-[550px]:flex-row min-[550px]:justify-between min-[550px]:gap-8">
                                         {aesthetic.examples.map((exampleCategory) => (
@@ -84,10 +84,10 @@ const AestheticsDescription: React.FC = () => {
                                     </a>
                                 </div>
                                 <div className="md:basis-2/5">
-                                    <img className="hidden md:block" src={aesthetic.image} alt={aesthetic.name} />
+                                    <Image className="hidden md:block rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={300} />
                                 </div>
                             </div>
-                            <hr className="block h-px border-t-px border-black w-full my-6" />
+                            <hr className="block h-px border-t-px border-black w-full mt-6" />
                         </div>
                     );
                 })}

@@ -73,10 +73,13 @@ const MobileNav = () => {
                             </ul>
                         </div>
                         <div className="mt-auto flex flex-col justify-center items-center gap-8">
-                            <AuthorCredit
+                            <AuthorCredit 
                                 firstName="Christian"
                                 lastName="Rhodes"
                                 image='christian.jpg'
+                                websiteLink='https://christian-rhodes.com'
+                                twitterLink='https://twitter.com/chrisrhodesy'
+                                linkedinLink='https://www.linkedin.com/in/christianrhodes18/'
                             />
                             <ThemeChanger />
                             <div className="mx-auto lg:my-auto body2 py-4">
