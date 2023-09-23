@@ -21,53 +21,67 @@ export async function getSlug() {
 }
 
 export async function getArticleFromSlug(slug: String) {
-    const articleDir = path.join(articlesPath, `${slug}.mdx`)
-    const source = fs.readFileSync(articleDir)
-    const { content, data } = matter(source)
+  const articleDir = path.join(articlesPath, `${slug}.mdx`)
+  const source = fs.readFileSync(articleDir)
+  const { content, data } = matter(source)
   
-    return {
-      content,
-      frontmatter: {
-        slug,
-        title: data.title,
-        date: data.date,
-        author: data.author,
-        excerpt: data.excerpt,
-        coverImage: data.coverImage,
-        coverImageCredit: data.coverImageCredit,
-        tags: data.tags,
-        subjectGenre: data.subjectGenre,
-        subjectCreator: data.subjectCreator,
-        subjectFranchise: data.subjectFranchise,
-        song: data.song,
-        songName: data.songName,
-        songAuthor: data.songAuthor,
-        songCover: data.songCover,
-        //publishedAt: data.publishedAt,
-        //readingTime: readingTime(source).text,
-        ...data,
-      },
-    }
+  return {
+    content,
+    frontmatter: {
+      slug,
+      title: data.title,
+      publishedAt: data.publishedAt,
+      author: data.author,
+      excerpt: data.excerpt,
+      coverImage: data.coverImage,
+      coverImageCredit: data.coverImageCredit,
+      tags: data.tags,
+      aesthetics: data.aesthetics,
+      creator: data.creator,
+      franchise: data.franchise,
+      song: data.song,
+      songName: data.songName,
+      songAuthor: data.songAuthor,
+      songCover: data.songCover,
+      //readingTime: readingTime(source).text,
+      ...data,
+    },
   }
+}
 
-  export async function getAllArticles() {
-    const articles = fs.readdirSync(path.join(process.cwd(), 'data/articles'))
-  
-    return articles.reduce((allArticles: any, articleSlug: any) => {
-      // get parsed data from mdx files in the "articles" dir
-      const source = fs.readFileSync(
-        path.join(process.cwd(), 'data/articles', articleSlug),
-        'utf-8'
-      )
-      const { data } = matter(source)
-  
-      return [
-        {
-          ...data,
-          slug: articleSlug.replace('.mdx', ''),
-          //readingTime: readingTime(source).text,
-        },
-        ...allArticles,
-      ]
-    }, [])
-  }
+export async function getAllArticles() {
+  const articles = fs.readdirSync(path.join(process.cwd(), 'data/articles'))
+
+  return articles.reduce((allArticles: any, articleSlug: any) => {
+    // get parsed data from mdx files in the "articles" dir
+    const source = fs.readFileSync(
+      path.join(process.cwd(), 'data/articles', articleSlug),
+      'utf-8'
+    )
+    const { data } = matter(source)
+
+    return [
+      {
+        ...data,
+        slug: articleSlug.replace('.mdx', ''),
+        //readingTime: readingTime(source).text,
+      },
+      ...allArticles,
+    ]
+  }, [])
+}
+
+export async function getArticlesByTag(tag: string) {
+  const articles = await getAllArticles()
+  return articles.filter((article: any) => article.tags.includes(tag))
+}
+
+export async function getArticlesByAesthetics(aesthetics: string) {
+  const articles = await getAllArticles()
+  return articles.filter((article: any) => article.aesthetics.includes(aesthetics))
+}
+
+export async function getArticlesByCreator(creator: string) {
+  const articles = await getAllArticles()
+  return articles.filter((article: any) => article.creator.includes(creator))
+}

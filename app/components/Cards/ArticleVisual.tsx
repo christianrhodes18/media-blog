@@ -6,11 +6,11 @@ interface ArticleProps {
     title: string,
     excerpt: string,
     tags: string[],
-    publishDate: string,
+    publishedAt: string,
     image: string
 }
 
-const ArticleVisual:React.FC<ArticleProps> = ({ size, title, excerpt, tags, publishDate, image }) => {
+const ArticleVisual:React.FC<ArticleProps> = ({ size, title, excerpt, tags, publishedAt, image }) => {
     return (
         <div className={`relative ${size === 'small' ? 'h-[260px]' : 'h-[360px]'}`}>
             <Image className="rounded-xl overflow-hidden object-cover h-full" src={image} alt="header image" width={800} height="270" />
@@ -27,7 +27,7 @@ const ArticleVisual:React.FC<ArticleProps> = ({ size, title, excerpt, tags, publ
                         )}
                     </div>
                     <h4 className={`text-white my-2 lg:pr-2 ${size === 'small' ? 'text-xl' : ''}`}>{title}</h4>
-                    <p className="subtitle1 text-white">{publishDate}</p>
+                    <p className="subtitle1 text-white">{publishedAt}</p>
                     <div className={`absolute bottom-0 ${size === 'small' ? '' : ''}`}>
                         <Button />
                     </div>

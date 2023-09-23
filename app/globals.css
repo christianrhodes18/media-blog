@@ -82,6 +82,10 @@ h6 {
   font-size: 32px;
   font-weight: 300;
 }
+.p_less_padding {
+  padding: .5rem 0 .5rem 0; 
+  margin: 0;
+}
 
 
 @media (max-width: 600px) {

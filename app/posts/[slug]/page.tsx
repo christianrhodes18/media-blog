@@ -21,17 +21,27 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className="mt-6 min-[700px]:mt-12 mb-12 max-w-[700px] mx-auto">
-      {/* list of tags */}
-      <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
-        {article.frontmatter.tags.map((tag: string) => {
-          return (
-            <p>{tag}</p>
+      <div>
+        {/* list of tags */}
+        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
+          {article.frontmatter.tags.map((tag: string) => {
+            return (
+              <p className="p_less_padding">{tag}</p>
+            )}
           )}
-        )}
-      </div> 
+        </div> 
+        {/* list of aesthetics */}
+        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
+          {article.frontmatter.aesthetics.map((aesthetic: string) => {
+            return (
+              <p className="p_less_padding">{aesthetic}</p>
+            )}
+          )}
+        </div> 
+      </div>
       <h3 className="w-[95%] min-[700px]:w-full mx-auto mt-2">{article.frontmatter.title}</h3>
       <h6 className="w-[95%] min-[700px]:w-full mx-auto mt-2">{article.frontmatter.excerpt}</h6>
-      <p className="w-[95%] min-[700px]:w-full mx-auto my-3 subtitle1">Published: {article.frontmatter.date}</p>
+      <p className="w-[95%] min-[700px]:w-full mx-auto my-3 subtitle1">Published: {article.frontmatter.publishedAt}</p>
       <Image className="mt-3 w-full h-auto" src={article.frontmatter.coverImage} alt={article.frontmatter.title} width={500} height={200} />
       <p className="w-[95%] min-[700px]:w-full mx-auto my-2 caption">Image by {article.frontmatter.coverImageCredit}</p>
       <hr className="w-[95%] min-[700px]:w-full mx-auto mb-6" />

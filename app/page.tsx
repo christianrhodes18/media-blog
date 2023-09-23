@@ -7,13 +7,21 @@ import ArticleVisual from "./components/Cards/ArticleVisual"
 
 export default async function Home() {
   const articles = await getAllArticles()
+  // Sort articles by date
   articles
     .map((article) => article.data)
     .sort((a, b) => {
       if (a.data.publishedAt > b.data.publishedAt) return 1
       if (a.data.publishedAt < b.data.publishedAt) return -1
       return 0
-    })
+    }
+  )
+  
+  // //format dates
+  // articles.map((article) => {
+  //   const date = new Date(article.data.publishedAt)
+  //   article.data.publishedAt = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  // })
 
   const posts = articles.reverse()
 
@@ -32,7 +40,7 @@ export default async function Home() {
                 title={post.title}
                 excerpt={post.excerpt}
                 tags={post.tags}
-                publishDate="August 18, 2023"
+                publishedAt={post.publishedAt}
                 image={post.coverImage}
               />
             </Link>
@@ -52,7 +60,7 @@ export default async function Home() {
                     title={post.title}
                     excerpt={post.excerpt}
                     tags={post.tags}
-                    publishDate="August 18, 2023"
+                    publishedAt={post.publishedAt}
                     image={post.coverImage}
                   />
                 </Link>
@@ -63,8 +71,8 @@ export default async function Home() {
                     size="small"
                     title={nextPost.title}
                     excerpt={nextPost.excerpt}
-                    tags={post.tags}
-                    publishDate="August 18, 2023"
+                    tags={nextPost.tags}
+                    publishedAt={post.publishedAt}
                     image={nextPost.coverImage}
                   />
                 </Link>
@@ -82,7 +90,7 @@ export default async function Home() {
                   title={post.title}
                   excerpt={post.excerpt}
                   tags={post.tags}
-                  publishDate="August 18, 2023"
+                  publishedAt={post.publishedAt}
                   image={post.coverImage}
                 />
               </Link>
@@ -113,14 +121,14 @@ export default async function Home() {
         <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
           {/* mobile articles - one column */}
           <div className="lg:hidden flex flex-col gap-8">
-            {posts.map((frontMatter: { slug: any; title: string; excerpt: string, coverImage: string, tags: [string] }) => {
+            {posts.map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
               return (
                 <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
                   <ArticleArchiveCurvy 
                     title={frontMatter.title}
                     excerpt={frontMatter.excerpt}
                     tags={frontMatter.tags}
-                    publishDate="August 18, 2023"
+                    publishedAt={frontMatter.publishedAt}
                     image={frontMatter.coverImage}
                   />
                   {/* <div>
