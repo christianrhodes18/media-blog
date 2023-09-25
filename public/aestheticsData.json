@@ -1,41 +1,325 @@
 {
-    "Cyberpunk": {
-      "name": "Cyberpunk",
-      "description": "Cyberpunk aesthetics are characterized by futuristic, dystopian settings with advanced technology and a gritty, neon-lit atmosphere.",
-      "image": "cyberpunk.jpeg",
-      "examples": [
-        {
-          "category": "Movies",
-          "examples": ["Blade Runner", "The Matrix", "Ghost in the Shell"]
-        },
-        {
-          "category": "Video Games",
-          "examples": ["Deus Ex", "System Shock", "Cyberpunk 2077"]
-        },
-        {
-          "category": "Books",
-          "examples": ["Neuromancer", "Snow Crash", "Altered Carbon"]
-        }
-      ]
-    },
-    "Steampunk": {
-      "name": "Steampunk",
-      "description": "Steampunk combines Victorian-era aesthetics with steam-powered machinery and retro-futuristic elements.",
-      "image": "steampunk_image.jpg",
-      "examples": [
-        {
-          "category": "Movies",
-          "examples": ["Wild Wild West", "The League of Extraordinary Gentlemen", "Stardust"]
-        },
-        {
-          "category": "Video Games",
-          "examples": ["Bioshock Infinite", "Dishonored", "Arcanum: Of Steamworks and Magick Obscura"]
-        },
-        {
-          "category": "Books",
-          "examples": ["The Difference Engine", "Perdido Street Station", "Leviathan"]
-        }
-      ]
-    }
+  "Cyberpunk": {
+    "name": "Cyberpunk",
+    "description": "Cyberpunk aesthetics are characterized by futuristic, dystopian settings with advanced technology and a gritty, neon-lit atmosphere.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Blade Runner", "The Matrix", "Ghost in the Shell"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["Deus Ex", "System Shock", "Cyberpunk 2077"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Neuromancer", "Snow Crash", "Altered Carbon"]
+      }
+    ]
+  },
+  "Futurism": {
+    "name": "Futurism",
+    "description": "Futurism aesthetics embrace a forward-looking, visionary approach, often featuring sleek and minimalist designs with an emphasis on technology and progress.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Art",
+        "examples": ["Futurist Manifesto", "Unique Forms of Continuity in Space", "Cityscape by Umberto Boccioni"]
+      },
+      {
+        "category": "Movies",
+        "examples": ["Metropolis", "A.I. Artificial Intelligence", "Her"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["Mirror's Edge", "Deus Ex: Human Revolution", "Transistor"]
+      }
+    ]
+  },
+  "Steampunk": {
+    "name": "Steampunk",
+    "description": "Steampunk combines Victorian-era aesthetics with steam-powered machinery and retro-futuristic elements.",
+    "image": "steampunk_image.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Wild Wild West", "The League of Extraordinary Gentlemen", "Stardust"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["Bioshock Infinite", "Dishonored", "Arcanum: Of Steamworks and Magick Obscura"]
+      },
+      {
+        "category": "Books",
+        "examples": ["The Difference Engine", "Perdido Street Station", "Leviathan"]
+      }
+    ]
+  },
+  "Biopunk": {
+    "name": "Biopunk",
+    "description": "Biopunk aesthetics explore the intersection of biotechnology and society, often featuring genetically modified organisms and ethical dilemmas.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Video Games",
+        "examples": ["Deus Ex: Human Revolution", "System Shock 2", "E.Y.E.: Divine Cybermancy"]
+      },
+      {
+        "category": "Books",
+        "examples": ["The Windup Girl", "The Science of Discworld", "The Biotech Primer"]
+      },
+      {
+        "category": "Movies",
+        "examples": ["Repo! The Genetic Opera", "Splice", "GATTACA"]
+      }
+    ]
+  },
+  "Fantasy": {
+    "name": "Fantasy",
+    "description": "Fantasy aesthetics transport viewers to magical worlds filled with mythical creatures, quests, and epic adventures.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["The Lord of the Rings", "Harry Potter", "The Chronicles of Narnia"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["The Elder Scrolls V: Skyrim", "The Legend of Zelda", "Dragon Age: Inquisition"]
+      },
+      {
+        "category": "Books",
+        "examples": ["A Song of Ice and Fire", "The Hobbit", "The Name of the Wind"]
+      }
+    ]
+  },
+  "FilmNoir": {
+    "name": "Film Noir",
+    "description": "Film noir aesthetics are associated with dark, moody settings, crime, and morally complex characters.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Double Indemnity", "The Maltese Falcon", "Chinatown"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Twin Peaks", "True Detective", "Fargo"]
+      },
+      {
+        "category": "Books",
+        "examples": ["The Big Sleep", "The Postman Always Rings Twice", "The Long Goodbye"]
+      }
+    ]
+  },
+  "SpaceOpera": {
+    "name": "Space Opera",
+    "description": "Space opera aesthetics are known for their grandiose settings, epic battles, and intergalactic adventures.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Star Wars", "Guardians of the Galaxy", "Dune"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Star Trek", "Battlestar Galactica", "The Expanse"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Foundation", "Hyperion", "The Hitchhiker's Guide to the Galaxy"]
+      }
+    ]
+  },
+  "Dystopian": {
+    "name": "Dystopian",
+    "description": "Dystopian aesthetics depict bleak, oppressive, and often totalitarian futures.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["1984", "The Hunger Games", "Children of Men"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["The Handmaid's Tale", "Black Mirror", "The Man in the High Castle"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Brave New World", "Fahrenheit 451", "The Road"]
+      }
+    ]
+  },
+  "Horror": {
+    "name": "Horror",
+    "description": "Horror aesthetics aim to frighten and unsettle viewers with supernatural or psychological elements.",
+    "image": "horror.jpeg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["The Shining", "The Exorcist", "Hereditary"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["The Haunting of Hill House", "American Horror Story", "Stranger Things"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Dracula", "The Silence of the Lambs", "Psycho"]
+      }
+    ]
+  },
+  "Gothic": {
+    "name": "Gothic",
+    "description": "Gothic aesthetics are associated with dark, mysterious, and ornate settings, often featuring elements of horror and the supernatural.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Crimson Peak", "Sleepy Hollow", "Interview with the Vampire"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Penny Dreadful", "The Chilling Adventures of Sabrina", "Buffy the Vampire Slayer"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Frankenstein", "Dracula", "Edgar Allan Poe's works"]
+      }
+    ]
+  },
+  "PostApocalyptic": {
+    "name": "Post-Apocalyptic",
+    "description": "Post-apocalyptic aesthetics showcase worlds devastated by catastrophic events, often with desolate landscapes and resource scarcity.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Mad Max: Fury Road", "The Road", "The Book of Eli"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["The Walking Dead", "The 100", "Jericho"]
+      },
+      {
+        "category": "Books",
+        "examples": ["The Road", "The Stand", "Metro 2033"]
+      }
+    ]
+  },
+  "Surrealism": {
+    "name": "Surrealism",
+    "description": "Surrealistic aesthetics are characterized by dreamlike and absurd elements, challenging the viewer's perception of reality.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Un Chien Andalou", "Eraserhead", "Mulholland Drive"]
+      },
+      {
+        "category": "Art",
+        "examples": ["The Persistence of Memory by Salvador Dalí", "The Elephants by Salvador Dalí", "The Treachery of Images by René Magritte"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Twin Peaks", "Legion", "The Prisoner"]
+      }
+    ]
+  },
+  "Minimalism": {
+    "name": "Minimalism",
+    "description": "Minimalist aesthetics focus on simplicity, clean lines, and a lack of excess, often conveying a sense of calm and order.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Art",
+        "examples": ["Composition with Red, Blue, and Yellow by Piet Mondrian", "Black Square by Kazimir Malevich", "Number 1A by Jackson Pollock"]
+      },
+      {
+        "category": "Architecture",
+        "examples": ["Farnsworth House by Ludwig Mies van der Rohe", "Villa Savoye by Le Corbusier", "Barcelona Pavilion by Ludwig Mies van der Rohe"]
+      },
+      {
+        "category": "Design",
+        "examples": ["iPod by Apple", "Swiss Railway Clock by Hans Hilfiker", "Wassily Chair by Marcel Breuer"]
+      }
+    ]
+  },
+  "Superhero": {
+    "name": "Superhero",
+    "description": "Superhero aesthetics are characterized by larger-than-life characters with special abilities, often engaged in battles between good and evil.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["The Dark Knight", "The Avengers", "Spider-Man: Into the Spider-Verse"]
+      },
+      {
+        "category": "Comics",
+        "examples": ["Batman", "Superman", "X-Men"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Arrow", "The Flash", "Daredevil"]
+      }
+    ]
+  },
+  "Shōnen": {
+    "name": "Shōnen",
+    "description": "Shōnen aesthetics are characterized by action-packed adventures, strong friendships, and themes of courage, determination, and self-improvement.",
+    "image": "shonen.jpg",
+    "examples": [
+      {
+        "category": "Anime",
+        "examples": ["Naruto", "Dragon Ball", "One Piece"]
+      },
+      {
+        "category": "Manga",
+        "examples": ["My Hero Academia", "Bleach", "Hunter x Hunter"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["Jump Force", "Naruto: Ultimate Ninja Storm", "Dragon Ball FighterZ"]
+      }
+    ]
+  },
+  "Historical": {
+    "name": "Historical",
+    "description": "Historical aesthetics are set in specific time periods, often featuring accurate depictions of historical events, cultures, and costumes.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Braveheart", "Gladiator", "Elizabeth"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["The Crown", "Vikings", "Rome"]
+      },
+      {
+        "category": "Books",
+        "examples": ["War and Peace", "Pillars of the Earth", "The Book Thief"]
+      }
+    ]
+  },
+  "Retro": {
+    "name": "Retro",
+    "description": "Retro aesthetics draw inspiration from past eras, such as the '80s or '90s, featuring nostalgic elements like vintage technology, fashion, and pop culture.",
+    "image": "cyberpunk.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["Stranger Things", "Ready Player One", "Atomic Blonde"]
+      },
+      {
+        "category": "Video Games",
+        "examples": ["Hotline Miami", "Far Cry 3: Blood Dragon", "Streets of Rage 4"]
+      },
+      {
+        "category": "Fashion",
+        "examples": ["Retro-style clothing and accessories"]
+      }
+    ]
   }
-  
+}

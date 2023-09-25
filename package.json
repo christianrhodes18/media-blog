@@ -16,6 +16,7 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.2",
+    "fs": "^0.0.1-security",
     "glob": "^10.3.3",
     "gray-matter": "^4.0.3",
     "next": "13.4.19",

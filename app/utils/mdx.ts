@@ -1,5 +1,5 @@
 import path from 'path'
-import fs from 'fs'
+import * as fs from 'fs'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 import { sync } from 'glob'
@@ -71,17 +71,37 @@ export async function getAllArticles() {
   }, [])
 }
 
-export async function getArticlesByTag(tag: string) {
-  const articles = await getAllArticles()
-  return articles.filter((article: any) => article.tags.includes(tag))
-}
+// export async function getArticlesByTag(tag: string) {
+//   const articles = await getAllArticles()
+//   return articles.filter((article: any) => article.tags.includes(tag))
+// }
 
-export async function getArticlesByAesthetics(aesthetics: string) {
-  const articles = await getAllArticles()
-  return articles.filter((article: any) => article.aesthetics.includes(aesthetics))
-}
+// export async function getArticlesByAesthetics(aesthetics: string) {
+//   const articles = await getAllArticles()
+//   return articles.filter((article: any) => article.aesthetics.includes(aesthetics))
+// }
 
-export async function getArticlesByCreator(creator: string) {
-  const articles = await getAllArticles()
-  return articles.filter((article: any) => article.creator.includes(creator))
-}
+// export async function getArticlesByCreator(creator: string) {
+//   const articles = await getAllArticles()
+//   return articles.filter((article: any) => article.creator.includes(creator))
+// }
+
+// export async function getAllTags() {
+//   //const articles = await getAllArticles()
+//   // const tags = articles.reduce((allTags: any, article: any) => {
+//   //   //return array of strings
+//   //   return [...new Set([...allTags, ...article.tags])]
+//   // }, [])
+
+//   //return tags
+//   return ["tag1", "tag2", "tag3"]
+// }
+
+// export async function getAllAesthetics() {
+//   const articles = await getAllArticles()
+//   const aesthetics = articles.reduce((allAesthetics: any, article: any) => {
+//     return [...new Set([...allAesthetics, ...article.aesthetics])]
+//   }, [])
+
+//   return aesthetics
+// }
