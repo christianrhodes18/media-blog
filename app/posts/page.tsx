@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getAllArticles } from "../utils/mdx"
 import ArticleArchiveBoxy from '../components/Cards/ArticleArchiveBoxy'
 import FilterButton from '../components/FilterButton'
+import { useEffect } from 'react'
 
 // TODO: make async function and get tags and aesthetics from mdx files
 export default async function Posts({ searchParams }: { searchParams: { tag: string, aesthetic: string, date: string }}) {
@@ -19,6 +20,25 @@ export default async function Posts({ searchParams }: { searchParams: { tag: str
       return 0
     })
   const posts = articles.reverse()
+
+  const updatePosts = () => {
+    // filter posts by tag
+    if (selectedTag !== "all") {
+      posts.filter((post: { data: { tags: string[] } }) => {
+        return post.data.tags.includes(selectedTag)
+      })
+    }
+  }
+
+  // call updatePosts when page loads
+  // useEffect(() => {
+  //   updatePosts()
+  // }, [])
+
+  // update posts when selectedTag changes
+  // useEffect(() => {
+  //   updatePosts()
+  // }, [selectedTag, selectedAesthetic, selectedDate])
 
     return (
       <div className="w-[90%] md:w-[85%] flex flex-col max-w-5xl mx-auto sm:mt-12 mb-12">

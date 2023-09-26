@@ -71,6 +71,18 @@ export async function getAllArticles() {
   }, [])
 }
 
+// function to get all tags
+export function getAllTags() {
+  const tags = ["games", "books", "television", "movies", "anime", "music", "technology", "retro"]
+  return tags
+}
+
+// function to get all aesthetics
+export function getAllAesthetics() {
+  const aesthetics = ["cyberpunk", "futurism", "steampunk", "biopunk", "fantasy", "film noir", "space opera", "dystopian", "horror", "gothic", "post-apocalyptic", "surrealism", "minimalism", "superhero", "historical", "retro"]
+  return aesthetics
+}
+
 // export async function getArticlesByTag(tag: string) {
 //   const articles = await getAllArticles()
 //   return articles.filter((article: any) => article.tags.includes(tag))

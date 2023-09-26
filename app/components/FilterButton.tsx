@@ -2,36 +2,79 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
-//import { getAllAesthetics, getAllTags } from '../utils/mdx';
+// import { getAllAesthetics, getAllTags } from '../utils/mdx';
 
 interface FilterButtonProps {
     type: string;
 }
 
-// const getDropdownData = async (type: string): Promise<string[]> => {
+// const getDropdownData = (type: string): string[] => {
 //     if (type === 'tag') {
-//         // const tagOptions = await getAllTags()
-//         // return tagOptions
-//         return ["hi", "hey"]
+//         const tagOptions= getAllTags()
+//         return tagOptions
+//         //return ["hi", "hey"]
 //     }
 //     else if (type === 'aesthetic') {
-//         // const aestheticOptions = await getAllAesthetics()
-//         // return aestheticOptions
-//         return ["hi", "hey"]
+//         const aestheticOptions= getAllAesthetics()
+//         return aestheticOptions
+//         //return ["hi", "hey"]
 //     }
 //     else {
 //         return ["error"]
 //     }
 // }
 
+// function to get all tags
+function getAllTags() {
+    const tags = ["Games", "Books", "Television", "Movies", "Anime", "Music", "Technology", "Retro"]
+    return tags
+}
+
+// function to get all aesthetics
+function getAllAesthetics() {
+    const aesthetics = ["Cyberpunk", "Futurism", "Steampunk", "Biopunk", "Fantasy", "Film Noir", "Space Opera", "Dystopian", "Horror", "Gothic", "Post-Apocalyptic", "Surrealism", "Minimalism", "Superhero", "Historical", "Retro"]
+    return aesthetics
+}
+
 const FilterButton: React.FC<FilterButtonProps> = ({ type }) => {
     const [active, setActive] = useState(false)
-    //const [dropdownData, setDropdownData] = useState<string[]>([])
+    const [dropdownData, setDropdownData] = useState<string[]>([])
+    const [selectedData, setSelectedData] = useState<string[]>([])
     
-    
-    // useEffect(() => {
-    //     // console.log(getDropdownData(type))
-    // }, []);
+    // get tags and aesthetics
+    useEffect(() => {
+        if (type === 'tag') {
+            const tagOptions = getAllTags()
+            setDropdownData(tagOptions)
+        }
+        else if (type === 'aesthetic') {
+            const aestheticOptions = getAllAesthetics()
+            setDropdownData(aestheticOptions)
+        }
+        else {
+            setDropdownData(["error"])
+        }
+    }, []);
+
+    // DEV: log selectedData
+    useEffect(() => {
+        console.log(selectedData)
+    }, [selectedData])
+
+    // TODO: call function in page.tsx to update searchParams
+    const updateSelectedData = (selectedData: string[], option: string): string[] => {
+        // if option is already selected, remove it from selectedData
+        if (selectedData.includes(option)) {
+            const newSelectedData = selectedData.filter((item) => item !== option)
+            setSelectedData(newSelectedData)
+            return newSelectedData
+        }
+        // else add it to selectedData
+        else {
+            setSelectedData([...selectedData, option])
+            return [...selectedData, option]
+        }
+    }
 
     return (
         <div className="cardBGLightDark rounded-3xl px-4">
@@ -45,14 +88,12 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type }) => {
                 )}
             </button>
             {active && (
-                <div className="absolute cardBGLightDark flex flex-col gap-2">
-                    {/* {dropdownData.map((option) => {
+                <div className="absolute cardBGLightDark rounded-md m-2 min-w-[6rem] z-10 flex flex-col">
+                    {dropdownData.map((option) => {
                         return (
-                            <button className="body2">{option}</button>
+                            <button key={option} onClick={() => updateSelectedData(selectedData, option)} className={`text-left body2 px-2 h-8 ${selectedData.includes(option) ? 'bg-[#A3C0FB]' : ''}`}>{option}</button>
                         )
-                    })} */}
-                    <p>hi</p>
-                    <p>hey</p>
+                    })}
                 </div>
             )}
         </div>
