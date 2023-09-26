@@ -3,6 +3,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import Image from "next/image"
 import "../styles.css"
+import Link from "next/link";
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
@@ -26,7 +27,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
           {article.frontmatter.tags.map((tag: string) => {
             return (
-              <p className="p_less_padding">{tag}</p>
+              <Link href={`/posts/?tag=${tag.toLowerCase()}`} passHref>
+                <p className="p_less_padding">{tag}</p>
+              </Link>
             )}
           )}
         </div> 
@@ -34,7 +37,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
           {article.frontmatter.aesthetics.map((aesthetic: string) => {
             return (
-              <p className="p_less_padding">{aesthetic}</p>
+              <Link href={`/posts/?aesthetic=${aesthetic.toLowerCase()}`} passHref>
+                <p className="p_less_padding">{aesthetic}</p>
+              </Link>
             )}
           )}
         </div> 
