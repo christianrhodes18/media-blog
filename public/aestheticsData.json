@@ -21,7 +21,7 @@
   "Futurism": {
     "name": "Futurism",
     "description": "Futurism aesthetics embrace a forward-looking, visionary approach, often featuring sleek and minimalist designs with an emphasis on technology and progress.",
-    "image": "cyberpunk.jpg",
+    "image": "futurism.jpeg",
     "examples": [
       {
         "category": "Art",
@@ -40,7 +40,7 @@
   "Steampunk": {
     "name": "Steampunk",
     "description": "Steampunk combines Victorian-era aesthetics with steam-powered machinery and retro-futuristic elements.",
-    "image": "steampunk_image.jpg",
+    "image": "steampunk.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -59,7 +59,7 @@
   "Biopunk": {
     "name": "Biopunk",
     "description": "Biopunk aesthetics explore the intersection of biotechnology and society, often featuring genetically modified organisms and ethical dilemmas.",
-    "image": "cyberpunk.jpg",
+    "image": "biopunk.jpeg",
     "examples": [
       {
         "category": "Video Games",
@@ -78,7 +78,7 @@
   "Fantasy": {
     "name": "Fantasy",
     "description": "Fantasy aesthetics transport viewers to magical worlds filled with mythical creatures, quests, and epic adventures.",
-    "image": "cyberpunk.jpg",
+    "image": "fantasy.jpeg",
     "examples": [
       {
         "category": "Movies",
@@ -97,7 +97,7 @@
   "FilmNoir": {
     "name": "Film Noir",
     "description": "Film noir aesthetics are associated with dark, moody settings, crime, and morally complex characters.",
-    "image": "cyberpunk.jpg",
+    "image": "film_noir.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -116,7 +116,7 @@
   "SpaceOpera": {
     "name": "Space Opera",
     "description": "Space opera aesthetics are known for their grandiose settings, epic battles, and intergalactic adventures.",
-    "image": "cyberpunk.jpg",
+    "image": "space_opera.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -135,7 +135,7 @@
   "Dystopian": {
     "name": "Dystopian",
     "description": "Dystopian aesthetics depict bleak, oppressive, and often totalitarian futures.",
-    "image": "cyberpunk.jpg",
+    "image": "dystopian.jpeg",
     "examples": [
       {
         "category": "Movies",
@@ -173,7 +173,7 @@
   "Gothic": {
     "name": "Gothic",
     "description": "Gothic aesthetics are associated with dark, mysterious, and ornate settings, often featuring elements of horror and the supernatural.",
-    "image": "cyberpunk.jpg",
+    "image": "gothic.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -192,7 +192,7 @@
   "PostApocalyptic": {
     "name": "Post-Apocalyptic",
     "description": "Post-apocalyptic aesthetics showcase worlds devastated by catastrophic events, often with desolate landscapes and resource scarcity.",
-    "image": "cyberpunk.jpg",
+    "image": "post_apocalyptic.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -211,7 +211,7 @@
   "Surrealism": {
     "name": "Surrealism",
     "description": "Surrealistic aesthetics are characterized by dreamlike and absurd elements, challenging the viewer's perception of reality.",
-    "image": "cyberpunk.jpg",
+    "image": "surrealism.jpeg",
     "examples": [
       {
         "category": "Movies",
@@ -230,7 +230,7 @@
   "Minimalism": {
     "name": "Minimalism",
     "description": "Minimalist aesthetics focus on simplicity, clean lines, and a lack of excess, often conveying a sense of calm and order.",
-    "image": "cyberpunk.jpg",
+    "image": "minimalism.jpeg",
     "examples": [
       {
         "category": "Art",
@@ -249,7 +249,7 @@
   "Superhero": {
     "name": "Superhero",
     "description": "Superhero aesthetics are characterized by larger-than-life characters with special abilities, often engaged in battles between good and evil.",
-    "image": "cyberpunk.jpg",
+    "image": "superhero.jpeg",
     "examples": [
       {
         "category": "Movies",
@@ -268,7 +268,7 @@
   "Shōnen": {
     "name": "Shōnen",
     "description": "Shōnen aesthetics are characterized by action-packed adventures, strong friendships, and themes of courage, determination, and self-improvement.",
-    "image": "shonen.jpg",
+    "image": "shonen.jpeg",
     "examples": [
       {
         "category": "Anime",
@@ -287,7 +287,7 @@
   "Historical": {
     "name": "Historical",
     "description": "Historical aesthetics are set in specific time periods, often featuring accurate depictions of historical events, cultures, and costumes.",
-    "image": "cyberpunk.jpg",
+    "image": "historical.jpg",
     "examples": [
       {
         "category": "Movies",
@@ -306,7 +306,7 @@
   "Retro": {
     "name": "Retro",
     "description": "Retro aesthetics draw inspiration from past eras, such as the '80s or '90s, featuring nostalgic elements like vintage technology, fashion, and pop culture.",
-    "image": "cyberpunk.jpg",
+    "image": "retro.jpeg",
     "examples": [
       {
         "category": "Movies",

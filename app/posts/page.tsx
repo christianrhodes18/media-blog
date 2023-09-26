@@ -22,7 +22,7 @@ export default async function Posts({ searchParams }: { searchParams: { tag: str
 
     return (
       <div className="w-[90%] md:w-[85%] flex flex-col max-w-5xl mx-auto sm:mt-12 mb-12">
-        <h2 className="text-center mb-8">All Articles</h2>
+        <h2 className="text-center mb-8">Articles</h2>
         <div className="mt-2 mb-4 flex flex-row gap-4">
           Filter by: 
           <FilterButton 
