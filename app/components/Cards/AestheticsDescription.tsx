@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
+import Link from 'next/link';
 
 interface Example {
   category: string;
@@ -61,7 +62,9 @@ const AestheticsDescription: React.FC = () => {
                                 <div className="md:basis-3/5">
                                     <h3 className="">{aesthetic.name}</h3>
                                     <p className="mt-3">{aesthetic.description}</p>
-                                    <Image className="mt-6 mx-auto md:hidden rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={200} />
+                                    <div className="m-auto">
+                                        <Image className="mt-6 mx-auto md:hidden rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={200} />
+                                    </div>
 
                                     <div className="w-11/12 sm:w-full mx-auto min-[550px]:flex min-[550px]:flex-row min-[550px]:justify-between min-[550px]:gap-8">
                                         {aesthetic.examples.map((exampleCategory) => (
@@ -77,13 +80,13 @@ const AestheticsDescription: React.FC = () => {
                                         </div>
                                         ))}
                                     </div>
-                                    <a href={`/aesthetics/${aesthetic.name.toLowerCase()}`} className="flex mt-6 mx-auto justify-center w-4/5 bg-darkBGAccent px-4 py-2 rounded-lg">
+                                    <Link href={`/posts/?aesthetic=${aesthetic.name.toLowerCase()}`} passHref className="flex mt-6 mx-auto justify-center w-4/5 bg-darkBGAccent px-4 py-2 rounded-lg">
                                         <button className="text-darkText subtitle1">
                                             {`Read ${aesthetic.name} Articles`}
                                         </button>
-                                    </a>
+                                    </Link>
                                 </div>
-                                <div className="md:basis-2/5">
+                                <div className="md:basis-2/5 m-auto">
                                     <Image className="hidden md:block rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={300} />
                                 </div>
                             </div>
