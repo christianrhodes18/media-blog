@@ -60,6 +60,10 @@ export async function getAllArticles() {
     )
     const { data } = matter(source)
 
+    // lowerCase all tags and aesthetics
+    data.tags = data.tags.map((tag: string) => tag.toLowerCase())
+    data.aesthetics = data.aesthetics.map((aesthetic: string) => aesthetic.toLowerCase())
+
     return [
       {
         ...data,

@@ -57,9 +57,9 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type }) => {
     }, []);
 
     // DEV: log selectedData
-    useEffect(() => {
-        console.log(selectedData)
-    }, [selectedData])
+    // useEffect(() => {
+    //     console.log(selectedData)
+    // }, [selectedData])
 
     // TODO: call function in page.tsx to update searchParams
     const updateSelectedData = (selectedData: string[], option: string): string[] => {
