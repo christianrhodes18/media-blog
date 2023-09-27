@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 interface FilterButtonProps {
     type: string;
+    //onUpdate: (filterType: string, selectedData: string[]) => void;
 }
 
 // const getDropdownData = (type: string): string[] => {
@@ -36,7 +37,7 @@ function getAllAesthetics() {
     return aesthetics
 }
 
-const FilterButton: React.FC<FilterButtonProps> = ({ type }) => {
+const FilterButton: React.FC<FilterButtonProps> = ({ type, /* onUpdate  */}) => {
     const [active, setActive] = useState(false)
     const [dropdownData, setDropdownData] = useState<string[]>([])
     const [selectedData, setSelectedData] = useState<string[]>([])
@@ -67,11 +68,13 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type }) => {
         if (selectedData.includes(option)) {
             const newSelectedData = selectedData.filter((item) => item !== option)
             setSelectedData(newSelectedData)
+            //onUpdate(type, selectedData) // call function in parent page to update filters
             return newSelectedData
         }
         // else add it to selectedData
         else {
             setSelectedData([...selectedData, option])
+            //onUpdate(type, selectedData) // call function in parent page to update filters
             return [...selectedData, option]
         }
     }

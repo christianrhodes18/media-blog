@@ -13,16 +13,16 @@ import ClearFilterButton from '../components/Filter/ClearFilterButton'
 export default async function Posts({ searchParams }: { searchParams: { [key: string]: string | string[]} }) {
   // get tags from searchParams and convert to strings
   let selectedTagString: string = Array.isArray(searchParams.tag) ? searchParams.tag.join(',') : searchParams.tag || "all"
-  const selectedTagArray: string[] = selectedTagString.split(',')
+  let selectedTagArray: string[] = selectedTagString.split(',')
 
   // get aesthetics from searchParams and convert to strings
   let selectedAestheticString: string = Array.isArray(searchParams.aesthetic) ? searchParams.aesthetic.join(',') : searchParams.aesthetic || "all"
-  const selectedAestheticArray: string[] = selectedAestheticString.split(',')
+  let selectedAestheticArray: string[] = selectedAestheticString.split(',')
   
   //DEV LOGGING
-  console.log('selectedTagString: ', selectedTagString)
-  console.log('selectedTagString type: ', typeof(selectedTagString))
-  console.log('selectedAestheticString: ', selectedAestheticString)
+  // console.log('selectedTagString: ', selectedTagString)
+  // console.log('selectedTagString type: ', typeof(selectedTagString))
+  // console.log('selectedAestheticString: ', selectedAestheticString)
 
   const isFilterActive: boolean = selectedTagString !== "all" || selectedAestheticString !== "all"
   console.log('isFilterActive: ', isFilterActive)
@@ -40,6 +40,44 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
   let posts = articles.reverse()
   //console.log(posts)
   //console.log(posts[0].tags)
+
+  const updateFilters = (filterType: string, newFilterOptions: string[]) => {
+    console.log("updating filters")
+    if (filterType === "tag") {
+      // update tag filters
+      if (selectedTagString !== "all") { // tags already selected from URL
+        selectedTagString = newFilterOptions.join(',') // update selectedTagString
+        newFilterOptions.map((tag) => { // add new tags to selectedTagArray
+          if (!selectedTagArray.includes(tag)) {
+            selectedTagArray.push(tag)
+          }
+        })
+      }
+      else { // no tags selected from URL so it is "all"
+        selectedTagString = newFilterOptions.join(',') // update selectedTagString
+        selectedTagArray = newFilterOptions // update selectedTagArray
+      }
+    }
+
+    if (filterType === "aesthetic") {
+      // update aesthetic filters
+      if (selectedAestheticString !== "all") { // aesthetics already selected from URL
+        selectedAestheticString = newFilterOptions.join(',') // update selectedAestheticString
+        newFilterOptions.map((aesthetic) => { // add new aesthetics to selectedAestheticArray
+          if (!selectedAestheticArray.includes(aesthetic)) {
+            selectedAestheticArray.push(aesthetic)
+          }
+        })
+      }
+      else { // no aesthetics selected from URL so it is "all"
+        selectedAestheticString = newFilterOptions.join(',') // update selectedAestheticString
+        selectedAestheticArray = newFilterOptions // update selectedAestheticArray
+      }
+    }
+
+    // call updatePosts now that filters have been updated
+    posts = updatePosts()
+  }
   
   const updatePosts = () => {
     console.log("updating posts")
@@ -111,9 +149,11 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
           Filter by: 
           <FilterButton 
             type="tag"
+            //onUpdate={updateFilters}
           />
           <FilterButton 
             type="aesthetic"
+            //onUpdate={updateFilters}
           />
           {/* <FilterButton 
             type="date"
@@ -122,7 +162,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
 
         {/* display selected filters if there are any */}
         {(selectedTagString !== "all" || selectedAestheticString !== "all") && (
-          <div className="flex flex-row gap-2 mb-4">
+          <div className="flex flex-col min-[450px]:flex-row gap-2 mb-4">
 
             {/* display selected tags if any */}
             {selectedTagString !== "all" && (
@@ -140,23 +180,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
                 appliedFilters={selectedAestheticArray} 
                 //onClear={clearFilters}
               />
-              // <div className="flex cardBGLightDark rounded-3xl px-4 h-8 my-auto">
-              //   <p className="font-bold mr-2 my-auto">aesthetics: </p>
-              //   {/* list current aesthetic filters */}
-              //   <div className="flex gap-2 align-middle">
-              //     {selectedAestheticArray.map((aesthetic) => {
-              //       return (
-              //         <p key={aesthetic} className="my-auto italic">{aesthetic}</p>
-              //       )
-              //     })}
-              //   </div>
-              //   {/* clear aesthetic filters */}
-              //   <button className="pl-2">
-              //     x
-              //   </button>
-              // </div>
             )}
-
           </div>
         )}
 
@@ -186,6 +210,12 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
             )
           })}
         </div>
+        {/* display message if no posts exist */}
+        {posts.length === 0 && (
+          <div className="mx-auto md:mx-0">
+              <h6 className="">No articles found with the selected filters. </h6>
+          </div>
+        )}
       </div>
     )
   }
