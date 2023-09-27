@@ -1,0 +1,8 @@
+.textured-background {
+    /* background-color: rgba(96, 203, 131, 1); */
+    background-image: url('/texture.jpg');
+    opacity: 0.5; /* Adjust the opacity */
+    background-repeat: repeat; /* Repeat the texture */
+    background-size: cover; /* Adjust as needed */
+  }
+  

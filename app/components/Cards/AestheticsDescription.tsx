@@ -58,11 +58,15 @@ const AestheticsDescription: React.FC = () => {
                     const aesthetic = data[aestheticName];
                     return (
                         <div key={aestheticName}>
-                            <div className={`block mt-6 md:flex md:gap-8 lg:gap-20 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                                <div className="md:basis-3/5">
-                                    <h3 className="">{aesthetic.name}</h3>
-                                    <p className="mt-3">{aesthetic.description}</p>
-                                    <div className="m-auto">
+                            <div className={`block mt-6 md:flex md:gap-8 lg:gap-20 md:h-[25rem] lg:h-[32rem] ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                                <div className="md:basis-3/5 my-auto md:my-0 md:flex md:flex-col md:justify-between lg:justify-around md:align-middle">
+                                    <div className="hidden md:block">
+                                        <h3 className="">{aesthetic.name}</h3>
+                                        <p className="mt-3">{aesthetic.description}</p>
+                                    </div>
+                                    <h3 className="md:hidden">{aesthetic.name}</h3>
+                                    <p className="mt-3 md:hidden">{aesthetic.description}</p>
+                                    <div className="m-auto md:hidden">
                                         <Image className="mt-6 mx-auto md:hidden rounded-3xl bg-center" src={`/about/${aesthetic.image}`} alt={aesthetic.name} width={300} height={200} />
                                     </div>
 

@@ -46,7 +46,7 @@ export default function About() {
         </section>
 
         {/* categories section */}
-        <section className="mt-10 lg:mt-32 bg-primaryPurple text-lightText">
+        <section className={`mt-10 lg:mt-32 textured-background`}> {/* text-lightText */}
           <div className="w-[95%] min-[850px]:w-full max-w-[850px] mx-auto">
             <AestheticsDescription />
           </div>
