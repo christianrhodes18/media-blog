@@ -1,13 +1,14 @@
 "use client"
 
+import Link from "next/link";
+import Image from "next/image"
+
 interface FilterButtonProps {
     type: string;
     appliedFilters: string[];
-    //onClear: () => void;
 }
 
 const ClearFilterButton: React.FC<FilterButtonProps> = ({ type, appliedFilters }) => {
-
     return (
         <div className="flex shrink cardBGLightDark rounded-3xl px-4 h-8 my-auto">
             <p className="font-bold mr-2 my-auto">{type}: </p>
@@ -22,9 +23,10 @@ const ClearFilterButton: React.FC<FilterButtonProps> = ({ type, appliedFilters }
             </div>
 
             {/* clear tag filters */}
-            <button className="pl-2" /* onClick={onClear} */>
-                x
-            </button>
+            <Link className="pl-2 my-auto" href={'/posts'}>
+                <Image className="w-4 dark:hidden" src={'/icons/close_light.svg'} alt={`clear ${type} filter`} width="12" height="12" />
+                <Image className="w-4 hidden dark:block" src={'/icons/close_dark.svg'} alt={`clear ${type} filter`} width="12" height="12" />
+            </Link>
         </div>
     )
 }

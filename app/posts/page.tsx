@@ -2,6 +2,7 @@
 //import { useEffect } from 'react'
 import Link from 'next/link'
 import { getAllArticles } from "../utils/mdx"
+
 import ArticleArchiveBoxy from '../components/Cards/ArticleArchiveBoxy'
 import FilterButton from '../components/Filter/FilterButton'
 import ClearFilterButton from '../components/Filter/ClearFilterButton'
@@ -123,14 +124,6 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
     posts = updatePosts()
   }
 
-  // function to clear filters
-  const clearFilters = () => {
-    console.log("clearing filters")
-    selectedTagString = "all"
-    selectedAestheticString = "all"
-    posts = articles.reverse()
-  }
-
 
   // call updatePosts when page loads
   // useEffect(() => {
@@ -147,14 +140,24 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
         <h2 className="text-center mb-8">Articles</h2>
         <div className="mt-2 mb-4 flex flex-row gap-4">
           Filter by: 
-          <FilterButton 
-            type="tag"
-            //onUpdate={updateFilters}
-          />
-          <FilterButton 
-            type="aesthetic"
-            //onUpdate={updateFilters}
-          />
+          {selectedTagString !== "all" ? 
+            <FilterButton 
+              type="tag"
+              currentTagFilters={selectedTagArray}
+            /> : 
+            <FilterButton
+                type="tag"
+              />
+            }
+          {selectedAestheticString !== "all" ?
+            <FilterButton 
+              type="aesthetic"
+              currentAestheticFilters={selectedAestheticArray}
+            /> :
+            <FilterButton
+              type="aesthetic"
+            />
+          }
           {/* <FilterButton 
             type="date"
           /> */}
@@ -169,7 +172,6 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
               <ClearFilterButton 
                 type="tag" 
                 appliedFilters={selectedTagArray} 
-                //onClear={clearFilters}
               />
             )}
 
@@ -178,7 +180,6 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
               <ClearFilterButton 
                 type="aesthetic" 
                 appliedFilters={selectedAestheticArray} 
-                //onClear={clearFilters}
               />
             )}
           </div>

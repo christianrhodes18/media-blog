@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
+import Link from 'next/link';
 // import { getAllAesthetics, getAllTags } from '../utils/mdx';
 
 interface FilterButtonProps {
     type: string;
-    //onUpdate: (filterType: string, selectedData: string[]) => void;
+    currentTagFilters?: string[];
+    currentAestheticFilters?: string[];
 }
 
 // const getDropdownData = (type: string): string[] => {
@@ -37,13 +39,13 @@ function getAllAesthetics() {
     return aesthetics
 }
 
-const FilterButton: React.FC<FilterButtonProps> = ({ type, /* onUpdate  */}) => {
+const FilterButton: React.FC<FilterButtonProps> = ({ type, currentTagFilters, currentAestheticFilters }) => {
     const [active, setActive] = useState(false)
     const [dropdownData, setDropdownData] = useState<string[]>([])
     const [selectedData, setSelectedData] = useState<string[]>([])
     
-    // get tags and aesthetics
     useEffect(() => {
+        // get tags and aesthetics
         if (type === 'tag') {
             const tagOptions = getAllTags()
             setDropdownData(tagOptions)
@@ -55,6 +57,16 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type, /* onUpdate  */}) => 
         else {
             setDropdownData(["error"])
         }
+
+        // get current tag filters
+        if (currentTagFilters) {
+            setSelectedData(currentTagFilters)
+        }
+        // get current aesthetic filters
+        else if (currentAestheticFilters) {
+            setSelectedData(currentAestheticFilters)
+        }
+
     }, []);
 
     // DEV: log selectedData
@@ -62,20 +74,53 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type, /* onUpdate  */}) => 
     //     console.log(selectedData)
     // }, [selectedData])
 
-    // TODO: call function in page.tsx to update searchParams
     const updateSelectedData = (selectedData: string[], option: string): string[] => {
         // if option is already selected, remove it from selectedData
         if (selectedData.includes(option)) {
             const newSelectedData = selectedData.filter((item) => item !== option)
             setSelectedData(newSelectedData)
-            //onUpdate(type, selectedData) // call function in parent page to update filters
+            setActive(!active) // close dropdown
             return newSelectedData
         }
         // else add it to selectedData
         else {
             setSelectedData([...selectedData, option])
-            //onUpdate(type, selectedData) // call function in parent page to update filters
+            setActive(!active) // close dropdown
             return [...selectedData, option]
+        }
+    }
+
+    const createQueryString = (type: string, option: string): string => {
+        //const query = `?${new URLSearchParams({ type: option })}`
+        option = option.toLowerCase()
+
+        if (currentTagFilters && type === 'tag') { // if currentTagFilters exists and type is tag
+            if (currentTagFilters.includes(option)) { // if option is already selected, remove it from currentTagFilters
+                const newTagFilters = currentTagFilters.filter((item) => item !== option) // remove option from currentTagFilters
+                const query = `?tag=${newTagFilters.join('&tag=')}`
+                return query
+            }
+            else {
+                const newTagFilters = [...currentTagFilters, option] // add option to currentTagFilters
+                const query = `?tag=${newTagFilters.join('&tag=')}`
+                return query
+            }
+        }
+        else if (currentAestheticFilters && type === 'aesthetic') { // if currentAestheticFilters exists and type is aesthetic
+            if (currentAestheticFilters.includes(option)) { // if option is already selected, remove it from currentAestheticFilters
+                const newAestheticFilters = currentAestheticFilters.filter((item) => item !== option) // remove option from currentAestheticFilters
+                const query = `?aesthetic=${newAestheticFilters.join('&aesthetic=')}`
+                return query
+            }
+            else {
+                const newAestheticFilters = [...currentAestheticFilters, option] // add option to currentAestheticFilters
+                const query = `?aesthetic=${newAestheticFilters.join('&aesthetic=')}`
+                return query
+            }
+        }
+        else { // no current filters
+            const query = `?${type}=${option}`
+            return query
         }
     }
 
@@ -94,7 +139,8 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type, /* onUpdate  */}) => 
                 <div className="absolute cardBGLightDark rounded-md m-2 min-w-[6rem] z-10 flex flex-col">
                     {dropdownData.map((option) => {
                         return (
-                            <button key={option} onClick={() => updateSelectedData(selectedData, option)} className={`text-left body2 px-2 h-8 ${selectedData.includes(option) ? 'bg-[#A3C0FB]' : ''}`}>{option}</button>
+                            //<button key={option} onClick={() => updateSelectedData(selectedData, option)} className={`text-left body2 px-2 h-8 ${selectedData.includes(option) ? 'bg-[#A3C0FB]' : ''}`}>{option}</button>
+                            <Link key={option} href={createQueryString(type, option)} onClick={() => updateSelectedData(selectedData, option)} className={`text-left body2 px-2 h-8 ${selectedData.includes(option) ? 'bg-[#A3C0FB]' : ''}`}>{option} </Link>
                         )
                     })}
                 </div>
