@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
               alt="Logo"
               className="h-8 w-8 mr-2"
             /> */}
-            <span className="font-semibold text-lg">Your Logo</span>
+            <span className="font-semibold text-lg">Aesthete's Digest</span>
           </a>
         </div>
 

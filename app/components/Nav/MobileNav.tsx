@@ -57,7 +57,7 @@ const MobileNav = () => {
                         </div>
                         <div className="flex flex-col justify-center">
                         <button onClick={() => setToggleMenu(false)}>
-                            <Link className="mx-auto font-bold text-2xl" href="/">Site Name</Link>
+                            <Link className="mx-auto font-bold text-2xl" href="/">Aesthete's Digest</Link>
                         </button>
                             <ul className="mt-14 text-center list-none">
                                 <li className="mb-3">
@@ -83,7 +83,7 @@ const MobileNav = () => {
                             />
                             <ThemeChanger />
                             <div className="mx-auto lg:my-auto body2 py-4">
-                                <p>&copy; {year} Site Name. All Rights Reserved.</p>
+                                <p>&copy; {year} Aesthete's Digest. All Rights Reserved.</p>
                             </div>
                         </div>
                     </nav>

@@ -21,10 +21,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const articleContent = await getArticleContents()
 
   return (
-    <main className="mt-6 min-[700px]:mt-12 mb-12 max-w-[700px] mx-auto">
+    <main className="mt-6 min-[700px]:mt-12 mb-12 max-w-[700px] mx-auto font-serif">
       <div>
         {/* list of tags */}
-        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
+        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4 font-sans">
           {article.frontmatter.tags.map((tag: string) => {
             return (
               <Link href={`/posts/?tag=${tag.toLowerCase()}`} passHref>
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           )}
         </div> 
         {/* list of aesthetics */}
-        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4">
+        <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4 font-sans">
           {article.frontmatter.aesthetics.map((aesthetic: string) => {
             return (
               <Link href={`/posts/?aesthetic=${aesthetic.toLowerCase()}`} passHref>

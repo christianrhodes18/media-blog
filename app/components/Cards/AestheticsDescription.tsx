@@ -49,7 +49,7 @@ const AestheticsDescription: React.FC = () => {
             {/* header */}
             <div className="lg:pt-20">
                 <h1>About the Aesthetics</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, soluta consequuntur! Soluta iure, mollitia a autem numquam esse consectetur tempore.</p>
+                <p>Aesthetics provide a useful framework for understanding and appreciating media. By identifying the key aesthetic elements of a given piece of media, we can better understand its artistic and emotional impact. This can help us to appreciate even seemingly simple or mundane media on a deeper level. </p>
                 <hr className="block h-px border-t-px border-black w-full mt-6" />
             </div>
             {/* aesthetics cards */}
