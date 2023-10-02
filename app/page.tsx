@@ -25,13 +25,13 @@ export default async function Home() {
 
   const posts = articles.reverse()
 
-  const renderedPostsGallery = (posts: any) => {
+  const renderedPostsGallery = (posts: any, postCount: number) => {
     const renderedPosts: JSX.Element[] = []
 
-    for (let i = 0; i < posts.length; i++) {
+    for (let i = 0; i < postCount; i++) {
       const post = posts[i];
-      if (i % 3 === 0) {
-        // Render the first component for every 3rd post (0, 3, 6, etc.)
+      if (i % 5 === 0) {
+        // Render the first component for every 5th post (0, 5, 10, etc.)
         renderedPosts.push(
           <div key={post.id} className="w-full">
             <Link href={`/posts/${post.slug}`} passHref >
@@ -104,49 +104,56 @@ export default async function Home() {
   }
     
   return (
-    <div className="w-[90%] md:w-[85%] max-w-6xl mx-auto sm:mt-12 mb-12">
-      {/* desktop two columns */}
-      <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
-        {/* desktop left column */}
-        <div className="lg:basis-2/5">
-          <div className="flex flex-row justify-center lg:justify-start align-middle gap-4 mb-5">
-            <Image src={CharacterGif} alt="character" width={60} height={70} />
-            <h6 className="my-auto">Welcome</h6>
+    <>
+      <div className="w-[90%] md:w-[85%] max-w-6xl mx-auto sm:mt-12 mb-12">
+        {/* desktop two columns */}
+        <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
+          {/* desktop left column */}
+          <div className="lg:basis-2/5">
+            <div className="flex flex-row justify-center lg:justify-start align-middle gap-4 mb-5">
+              <Image src={CharacterGif} alt="character" width={60} height={70} />
+              <h6 className="my-auto">Welcome</h6>
+            </div>
+            <h2 className="mb-8">Entertainment Lives Beyond the Screen</h2>
+            <h6 className="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+            <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
           </div>
-          <h2 className="mb-8">Entertainment Lives Beyond the Screen</h2>
-          <h6 className="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-          <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
-        </div>
-        {/* desktop right column */}
-        <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
-          {/* mobile articles - one column */}
-          <div className="lg:hidden flex flex-col gap-8">
-            {posts.map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
-              return (
-                <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
-                  <ArticleArchiveCurvy 
-                    title={frontMatter.title}
-                    excerpt={frontMatter.excerpt}
-                    tags={frontMatter.tags}
-                    publishedAt={frontMatter.publishedAt}
-                    image={frontMatter.coverImage}
-                  />
-                  {/* <div>
-                    {/* <p className="date">
-                      {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
-                      {frontMatter.readingTime}
-                    </p> */}
-                  {/* </div> */}
-                </Link>
-              )
-            })}
-          </div>
-          {/* desktop articles - gallery */}
-          <div className="hidden lg:flex flex-wrap">
-            {renderedPostsGallery(posts)}
+          {/* desktop right column */}
+          <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
+            {/* mobile articles - one column */}
+            <div className="lg:hidden flex flex-col gap-8">
+              {/* render 3 most recent posts on mobile */}
+              {posts.slice(0, 3).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
+                return (
+                  <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
+                    <ArticleArchiveCurvy 
+                      title={frontMatter.title}
+                      excerpt={frontMatter.excerpt}
+                      tags={frontMatter.tags}
+                      publishedAt={frontMatter.publishedAt}
+                      image={frontMatter.coverImage}
+                    />
+                    {/* <div>
+                      {/* <p className="date">
+                        {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                        {frontMatter.readingTime}
+                      </p> */}
+                    {/* </div> */}
+                  </Link>
+                )
+              })}
+            </div>
+            {/* desktop articles - gallery */}
+            <div className="hidden lg:flex flex-wrap">
+              {renderedPostsGallery(posts, 5)} {/* render 5 posts here */}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      {/* site banner */}
+      <div className="w-full mt-28 bg-cover">
+              
+      </div>
+    </>
   )
 }

@@ -87,6 +87,16 @@ h6 {
   margin: 0;
 }
 
+.gradient_background {
+  background: rgb(22,22,22);
+  background: linear-gradient(90deg, rgba(22,22,22,1) 19%, rgba(65,51,103,1) 100%);
+  color: #F5F4F6;
+}
+
+.gradient_background_diamond {
+  background: radial-gradient(50% 50% at 50% 50%, #8AB1EA 0%, rgba(255, 255, 255, 0) 100%);
+}
+
 
 @media (max-width: 600px) {
   h2 {

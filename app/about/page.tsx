@@ -24,7 +24,7 @@ export default function About() {
             </div>
             {/* Right Column */}
             <div className="w-11/12 sm:w-4/5 min-[400px]:pr-4 sm:pr-12">
-              <p className="body1">Aesthete’s Digest is devoted to showcasing media that inspires appreciation for aesthetics. From film and games to books and music, Aesthete’s Digest celebrates media that is beautiful, unique, and thought-provoking. Through this site, we aim to highlight the best of what modern culture has to offer, and to inspire others to look at the world around them with fresh eyes, and appreciate the beauty and artistry that can be found in the world around us.</p>
+              <p className="body1">Aesthete's Digest is devoted to showcasing media that inspires appreciation for aesthetics. From film and games to books and music, Aesthete's Digest celebrates media that is beautiful, unique, and thought-provoking. Through this site, we aim to highlight the best of what modern culture has to offer, and to inspire others to look at the world around them with fresh eyes, and appreciate the beauty and artistry that can be found in the world around us.</p>
             </div>
           </div>
           {/* 'why' section */}
@@ -46,7 +46,7 @@ export default function About() {
         </section>
 
         {/* categories section */}
-        <section className={`mt-10 lg:mt-32 textured-background`}> {/* text-lightText */}
+        <section className={`mt-10 lg:mt-32 textured-background gradient_background`}> {/* text-lightText */}
           <div className="w-[95%] min-[850px]:w-full max-w-[850px] mx-auto">
             <AestheticsDescription />
           </div>
