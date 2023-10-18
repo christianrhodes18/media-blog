@@ -150,10 +150,23 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      {/* site banner */}
-      <div className="w-full mt-28 bg-cover">
-              
-      </div>
+
+      {/* site intro section */}
+      <section className="w-full mt-28 bg-cover">
+        <div className="relative">
+          {/* <h1 className="absolute top-0 -left-10 whitespace-nowrap overflow-hidden">AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST</h1> */}
+        </div>
+        <div className="flex flex-row">
+          <div className="basis-1/3">
+            <Image src={"/aki_wallpaper.jpeg"} alt="banner" width={564} height={1081} />
+          </div>
+          <div className="basis-2/3">
+            <h3>Venture into the worlds between worlds; dark and light, good and evil</h3>
+            <h6>At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
+            <h5 className="underline">Learn more about us</h5>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
