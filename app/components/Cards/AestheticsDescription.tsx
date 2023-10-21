@@ -57,7 +57,7 @@ const AestheticsDescription: React.FC = () => {
                 {Object.keys(data).map((aestheticName, index) => {
                     const aesthetic = data[aestheticName];
                     return (
-                        <div key={aestheticName}>
+                        <div id={aestheticName} key={aestheticName}>
                             <div className={`block mt-6 md:flex md:gap-8 lg:gap-20 md:h-[25rem] lg:h-[32rem] ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                                 <div className="md:basis-3/5 my-auto md:my-0 md:flex md:flex-col md:justify-between lg:justify-around md:align-middle">
                                     <div className="hidden md:block">

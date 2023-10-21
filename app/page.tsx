@@ -4,6 +4,8 @@ import { getAllArticles } from "./utils/mdx"
 import CharacterGif from "@/public/character.gif"
 import ArticleArchiveCurvy from "./components/Cards/ArticleArchiveCurvy"
 import ArticleVisual from "./components/Cards/ArticleVisual"
+import Parallax from "./components/Motions/Parallax"
+import AestheticsPreviews from "./components/Cards/AestheticsPreviews"
 
 export default async function Home() {
   const articles = await getAllArticles()
@@ -153,18 +155,72 @@ export default async function Home() {
 
       {/* site intro section */}
       <section className="w-full mt-28 bg-cover">
-        <div className="relative">
-          {/* <h1 className="absolute top-0 -left-10 whitespace-nowrap overflow-hidden">AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST</h1> */}
+        <div className="">
+          <Parallax />
         </div>
-        <div className="flex flex-row">
-          <div className="basis-1/3">
-            <Image src={"/aki_wallpaper.jpeg"} alt="banner" width={564} height={1081} />
+        <div className="flex flex-col sm:flex-row w-[90%] md:w-[85%] max-w-6xl mx-auto sm:mt-12 sm:mb-12">
+          <div className="hidden sm:block basis-1/3"> {/* desktop version */}
+            <Image src={"/aki_wallpaper.jpeg"} alt="banner" width={564} height={1081} className="-translate-y-16" />
           </div>
-          <div className="basis-2/3">
-            <h3>Venture into the worlds between worlds; dark and light, good and evil</h3>
-            <h6>At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
-            <h5 className="underline">Learn more about us</h5>
+          <div className="sm:hidden max-h-80 flex"> {/* mobile version */}
+            <Image src={"/aki_wallpaper.jpeg"} alt="banner" width={250} height={500} className="rotate-90 -translate-y-20 m-auto" />
           </div>
+          <div className="basis-2/3 px-2 md:px-8 lg:px-20">
+            <h3 className="md:mt-4">Venture into the worlds between worlds; dark and light, good and evil</h3>
+            <h6 className="mt-4 sm:mt-10 md:mt-20">At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
+            <Link href="/about" passHref>
+              <h5 className="mt-8 sm:mt-16 underline">Learn more about us</h5>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* more articles section */}
+      <section className="mt-16 sm:mt-28 h-auto moreArticlesSectionBG">
+        <div className="w-[90%] md:w-[85%] max-w-6xl mx-auto">
+          <h2>More Articles</h2>
+          <div className="flex flex-col gap-8 py-12 mx-auto">
+              {/* render 3 recent articles TODO: SELECT THE APPROPRIATE POSTS - no reapeats from top of page */}
+              {posts.slice(0, 3).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
+                return (
+                  <Link href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
+                    <ArticleArchiveCurvy 
+                      title={frontMatter.title}
+                      excerpt={frontMatter.excerpt}
+                      tags={frontMatter.tags}
+                      publishedAt={frontMatter.publishedAt}
+                      image={frontMatter.coverImage}
+                    />
+                    {/* <div>
+                      {/* <p className="date">
+                        {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                        {frontMatter.readingTime}
+                      </p> */}
+                    {/* </div> */}
+                  </Link>
+                )
+              })}
+            </div>
+            <Link href="/posts" passHref>
+              <button className="my-auto w-auto h-10 bg-primaryPurple rounded-lg px-4 py-2 subtitle1 mb-8">
+                View All Articles
+              </button>
+            </Link>
+        </div>
+      </section>
+
+      {/* Explore Aesthetics section */}
+      <section className="viewAestheticsSectionBG min-h-[500px]">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-none justify-between align-middle text-darkText py-11 w-4/5 mx-auto">
+          <h2>Explore Aesthetics</h2>
+          <Link href="/about#aesthetics" passHref>
+            <button className="my-auto w-auto h-10 bg-primaryPurple rounded-lg px-4 py-2 subtitle1">
+              View All Aesthetics
+            </button>
+          </Link>
+        </div>
+        <div className="h-[260px] flex">
+          <AestheticsPreviews />
         </div>
       </section>
     </>

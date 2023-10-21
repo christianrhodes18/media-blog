@@ -8,7 +8,7 @@ import Image from 'next/image'
 const Navigation: React.FC = () => {
   
   return (
-    <nav className="p-4 w-full max-w-[1200px] mx-auto">
+    <nav className="p-4 w-full max-w-[1400px] mx-auto">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>

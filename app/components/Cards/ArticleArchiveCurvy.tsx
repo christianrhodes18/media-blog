@@ -27,7 +27,7 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
                 <p className="subtitle1 absolute bottom-0 p-2">{publishedAt}</p>
             </div>
 
-            <div className="hidden sm:flex flex-row mx-auto rounded-xl cardBGLightDark h-auto w-5/6"> {/* h-[360px] */}
+            <div className="hidden sm:flex flex-row mx-auto rounded-xl cardBGLightDark h-auto w-5/6 max-w-[800px]"> {/* h-[360px] */}
                 <div className='basis-1/2 px-4 pt-4 pb-2 md:px-8 md:pt-8 md:pb-4'>
                     <div className="flex flex-col">
                         <h5 className="mb-3">{title}</h5>
@@ -36,7 +36,7 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
                     </div>
                 </div>
                 <div className='basis-1/2'>
-                    <Image className="relative rounded-r-xl overflow-hidden object-cover h-full" src={image} alt="header image" width={400} height="360" />
+                    <Image className="relative rounded-r-xl overflow-hidden object-cover h-full hover:scale-105 transition-all" src={image} alt="header image" width={400} height="360" />
                     <div className="flex flex-row gap-2 relative bottom-10 caption px-4">
                         {tags.map((tag) => {
                                 return (

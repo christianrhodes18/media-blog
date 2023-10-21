@@ -93,8 +93,14 @@ h6 {
   color: #F5F4F6;
 }
 
-.gradient_background_diamond {
-  background: radial-gradient(50% 50% at 50% 50%, #8AB1EA 0%, rgba(255, 255, 255, 0) 100%);
+.moreArticlesSectionBG {
+  background: linear-gradient(#FFFFFF00, #0A72ED);
+  /* background: linear-gradient(#FFFFFF00, #A78BFA); */
+}
+
+.viewAestheticsSectionBG {
+  /* background: linear-gradient(to bottom right, #FFFFFF00, #0e0015); */
+  background-color: black;
 }
 
 
