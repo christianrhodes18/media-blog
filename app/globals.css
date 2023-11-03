@@ -12,6 +12,9 @@
   .cardBGLightDark {
     @apply bg-lightBGAccent dark:bg-darkBGAccent;
   }
+  .cardBGLightDarkArchive {
+    @apply bg-gradient-to-r from-[#EDF1F4] to-[#C3CBDC] dark:from-[#12100E] dark:to-[#2B4162];
+  }
 }
 
 
@@ -94,7 +97,7 @@ h6 {
 }
 
 .moreArticlesSectionBG {
-  background: linear-gradient(#FFFFFF00, #0A72ED);
+  background: linear-gradient(#FFFFFF00, #2B4162);
   /* background: linear-gradient(#FFFFFF00, #A78BFA); */
 }
 

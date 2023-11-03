@@ -14,7 +14,7 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
             <div className="basis-1/3 sm:basis-1/4">
                 <Image className="relative overflow-hidden object-cover h-full" src={image} alt="header image" width={400} height="270" />
             </div>
-            <div className="cardBGLightDark basis-2/3 sm:basis-3/4 px-2 sm:px-4 py-2">
+            <div className="cardBGLightDarkArchive basis-2/3 sm:basis-3/4 px-2 sm:px-4 py-2">
                 <div className="flex flex-row">
                     <h5 className="sm:basis-5/6 text-xl sm:text-2xl h-auto">{title}</h5>
                     <p className="hidden sm:block sm:basis-1/6 subtitle2 ml-1">{publishedAt}</p>
