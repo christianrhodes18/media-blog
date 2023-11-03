@@ -75,6 +75,26 @@
       }
     ]
   },
+  "ScienceFiction": {
+    "name": "Science Fiction",
+    "description": "Science fiction aesthetics often explore futuristic or speculative concepts, advanced technology, space exploration, and the impact of science on society.",
+    "image": "science_fiction.jpg",
+    "examples": [
+      {
+        "category": "Movies",
+        "examples": ["2001: A Space Odyssey", "Blade Runner 2049", "The Matrix"]
+      },
+      {
+        "category": "Books",
+        "examples": ["Dune", "Foundation", "Neuromancer"]
+      },
+      {
+        "category": "TV Shows",
+        "examples": ["Star Trek: The Next Generation", "The Expanse", "Black Mirror"]
+      }
+    ]
+  },
+  
   "Fantasy": {
     "name": "Fantasy",
     "description": "Fantasy aesthetics transport viewers to magical worlds filled with mythical creatures, quests, and epic adventures.",
