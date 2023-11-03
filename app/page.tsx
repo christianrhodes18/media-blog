@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { getAllArticles } from "./utils/mdx"
+import { getAllArticles, sortArticlesByDate } from "./utils/mdx"
 import CharacterGif from "@/public/character.gif"
 import ArticleArchiveCurvy from "./components/Cards/ArticleArchiveCurvy"
 import ArticleVisual from "./components/Cards/ArticleVisual"
@@ -9,15 +9,8 @@ import AestheticsPreviews from "./components/Cards/AestheticsPreviews"
 
 export default async function Home() {
   const articles = await getAllArticles()
-  // Sort articles by date
-  articles
-    .map((article) => article.data)
-    .sort((a, b) => {
-      if (a.data.publishedAt > b.data.publishedAt) return 1
-      if (a.data.publishedAt < b.data.publishedAt) return -1
-      return 0
-    }
-  )
+  const sortedArticles = await sortArticlesByDate(articles)
+  const posts = sortedArticles.reverse()
   
   // //format dates
   // articles.map((article) => {
@@ -25,13 +18,12 @@ export default async function Home() {
   //   article.data.publishedAt = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   // })
 
-  const posts = articles.reverse()
 
   const renderedPostsGallery = (posts: any, postCount: number) => {
     const renderedPosts: JSX.Element[] = []
 
     for (let i = 0; i < postCount; i++) {
-      const post = posts[i];
+      const post = sortedArticles[i];
       if (i % 5 === 0) {
         // Render the first component for every 5th post (0, 5, 10, etc.)
         renderedPosts.push(
@@ -179,9 +171,33 @@ export default async function Home() {
       <section className="mt-16 sm:mt-28 h-auto moreArticlesSectionBG">
         <div className="w-[90%] md:w-[85%] max-w-6xl mx-auto">
           <h2>More Articles</h2>
-          <div className="flex flex-col gap-8 py-12 mx-auto">
-              {/* render 3 recent articles TODO: SELECT THE APPROPRIATE POSTS - no reapeats from top of page */}
-              {posts.slice(0, 3).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
+          {/* show proper articles for desktop */}
+          <div className="hidden lg:flex flex-col gap-8 py-12 mx-auto">
+              {/* render 3 recent articles */}
+              {posts.slice(5, 8).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
+                return (
+                  <Link href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
+                    <ArticleArchiveCurvy 
+                      title={frontMatter.title}
+                      excerpt={frontMatter.excerpt}
+                      tags={frontMatter.tags}
+                      publishedAt={frontMatter.publishedAt}
+                      image={frontMatter.coverImage}
+                    />
+                    {/* <div>
+                      {/* <p className="date">
+                        {dayjs(frontMatter.publishedAt).format('MMMM D, YYYY')} &mdash;{' '}
+                        {frontMatter.readingTime}
+                      </p> */}
+                    {/* </div> */}
+                  </Link>
+                )
+              })}
+            </div>
+            {/* show proper articles for mobile */}
+            <div className="lg:hidden flex flex-col gap-8 py-12 mx-auto">
+              {/* render 3 recent articles */}
+              {posts.slice(3, 6).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
                 return (
                   <Link href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
                     <ArticleArchiveCurvy 
@@ -202,7 +218,7 @@ export default async function Home() {
               })}
             </div>
             <Link href="/posts" passHref>
-              <button className="my-auto w-auto h-10 cardBGLightDark rounded-lg px-4 py-2 subtitle1 mb-8">
+``              <button className="my-auto w-auto h-10 cardBGLightDark rounded-lg px-4 py-2 subtitle1 mb-8">
                 View All Articles
               </button>
             </Link>

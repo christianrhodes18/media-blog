@@ -1,7 +1,7 @@
 //"use client"
 //import { useEffect } from 'react'
 import Link from 'next/link'
-import { getAllArticles } from "../utils/mdx"
+import { getAllArticles, sortArticlesByDate } from "../utils/mdx"
 
 import ArticleArchiveBoxy from '../components/Cards/ArticleArchiveBoxy'
 import FilterButton from '../components/Filter/FilterButton'
@@ -31,6 +31,8 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
   //const selectedDate = (searchParams.date || "newest") as string
 
   const articles = await getAllArticles()
+  const sortedArticles = await sortArticlesByDate(articles)
+  let posts = sortedArticles.reverse()
   articles
     .map((article: { data: any }) => article.data)
     .sort((a: { data: { publishedAt: number } }, b: { data: { publishedAt: number } }) => {
@@ -38,7 +40,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
       if (a.data.publishedAt < b.data.publishedAt) return -1
       return 0
     })
-  let posts = articles.reverse()
+  // let posts = articles.reverse()
   //console.log(posts)
   //console.log(posts[0].tags)
 
@@ -86,7 +88,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
 
     //filter posts by tag and aesthetic if both are selected
     if (selectedTagString !== "all" && selectedAestheticString !== "all") {
-      filteredPosts = posts.filter((post) => {
+      filteredPosts = posts.filter((post: { tags: string[]; aesthetics: string[] }) => {
         // return true if post tags includes any element of selectedTagArray or post aesthetics includes any element of selectedAestheticArray
         return post.tags.some((tag: string) => selectedTagArray.includes(tag)) && post.aesthetics.some((aesthetic: string) => selectedAestheticArray.includes(aesthetic))
       })
@@ -94,7 +96,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
 
     // filter posts by tag
     if (selectedTagString !== "all") {
-      filteredPosts = posts.filter((post) => {
+      filteredPosts = posts.filter((post: { tags: string[] }) => {
         // DEV LOGGING
         // console.log('post tags: ', post.tags) //log for DEV
         // console.log('selectedTagArray: ', selectedTagArray) //log for DEV
@@ -106,7 +108,7 @@ export default async function Posts({ searchParams }: { searchParams: { [key: st
     }
     // filter posts by aesthetic
     if (selectedAestheticString !== "all") {
-      filteredPosts = posts.filter((post) => {
+      filteredPosts = posts.filter((post: { aesthetics: string[] }) => {
         // DEV LOGGING
         // console.log('post aesthetics: ', post.aesthetics) //log for DEV
         // console.log('selectedAestheticsArray: ', selectedAestheticsArray) //log for DEV

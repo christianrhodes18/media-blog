@@ -75,6 +75,15 @@ export async function getAllArticles() {
   }, [])
 }
 
+// function to sort articles by date (oldest to newest)
+export function sortArticlesByDate(articles: any) {
+  return articles.sort((a: any, b: any) => {
+    const dateA = new Date(a.publishedAt).getTime();
+    const dateB = new Date(b.publishedAt).getTime();
+    return dateA - dateB;
+  })
+}
+
 // function to get all tags
 export function getAllTags() {
   const tags = ["games", "books", "television", "movies", "anime", "music", "technology", "retro"]
