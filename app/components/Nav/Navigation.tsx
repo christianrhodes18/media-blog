@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
               width={48}
               height={48}
             />
-            <span className="font-semibold text-lg uppercase">Aesthete's Digest</span>
+            <span className="font-semibold text-lg uppercase">Aesthete&apos;s Digest</span>
           </a>
         </div>
 

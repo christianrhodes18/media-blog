@@ -107,7 +107,7 @@ export default async function Home() {
           <div className="lg:basis-2/5">
             <div className="flex flex-row justify-center lg:justify-middle align-middle gap-4 mb-5 mt-4">
               {/* <Image src={CharacterGif} alt="character" width={60} height={70} /> */}
-              <h6 className="mt-4 my-auto">Welcome to Aesthete's Digest</h6>
+              <h6 className="mt-4 my-auto">Welcome to Aesthete&apos;s Digest</h6>
             </div>
             {/* <h2 className="mb-8">Elevate Your Media Experience</h2> */}
             <h2 className="mt-20 my-6 lg:my-8">Explore the Vibrant Media Universe</h2>
@@ -165,7 +165,7 @@ export default async function Home() {
           </div>
           <div className="basis-2/3 px-2 md:px-8 lg:px-20">
             <h3 className="md:mt-4">Venture into the worlds between worlds; light and dark, good and evil</h3>
-            <h6 className="mt-4 sm:mt-10 md:mt-20">At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
+            <h6 className="mt-4 sm:mt-10 md:mt-20">At Aesthete&apos;s Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
             <div className="mt-8 sm:mt-16 flex gap-2">
               <h5 className="">Learn more about <Link href="/about" passHref className="underline">our ideas</Link></h5>
               <Link href="/about" passHref>
