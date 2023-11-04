@@ -11,6 +11,7 @@ export default async function Home() {
   const articles = await getAllArticles()
   const sortedArticles = await sortArticlesByDate(articles)
   const posts = sortedArticles.reverse()
+  const postCount = posts.length
   
   // //format dates
   // articles.map((article) => {
@@ -104,18 +105,23 @@ export default async function Home() {
         <div className="flex flex-col lg:flex-row lg:gap-20 gap-4">
           {/* desktop left column */}
           <div className="lg:basis-2/5">
-            <div className="flex flex-row justify-center lg:justify-start align-middle gap-4 mb-5">
-              <Image src={CharacterGif} alt="character" width={60} height={70} />
-              <h6 className="my-auto">Welcome</h6>
+            <div className="flex flex-row justify-center lg:justify-middle align-middle gap-4 mb-5 mt-4">
+              {/* <Image src={CharacterGif} alt="character" width={60} height={70} /> */}
+              <h6 className="mt-4 my-auto">Welcome to Aesthete's Digest</h6>
             </div>
-            <h2 className="mb-8">Entertainment Lives Beyond the Screen</h2>
-            <h6 className="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-            <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p>
+            {/* <h2 className="mb-8">Elevate Your Media Experience</h2> */}
+            <h2 className="mt-20 my-6 lg:my-8">Explore the Vibrant Media Universe</h2>
+            <h6 className="mb-16 lg:mb-8">Embark on a journey where beauty and technology converge to redefine your media experience. Join us in exploring the world of media aesthetics, where your passion for media finds its perfect expression.</h6>
+            {/* <p className="headerLight mb-4 text-center relative lg:hidden">Latest Articles</p> */}
+            <div className="absolute hidden lg:block bottom-0 mx-auto">
+              <h5><span className="text-6xl lg:text-9xl">{postCount}</span> articles published</h5>
+            </div>
           </div>
           {/* desktop right column */}
           <div className="lg:basis-3/5 flex flex-col mx-auto md:mx-0">
             {/* mobile articles - one column */}
             <div className="lg:hidden flex flex-col gap-8">
+              <p className="headerLight text-center relative lg:hidden">Latest Articles</p>
               {/* render 3 most recent posts on mobile */}
               {posts.slice(0, 3).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
                 return (
@@ -158,11 +164,12 @@ export default async function Home() {
             <Image src={"/aki_wallpaper.jpeg"} alt="banner" width={250} height={500} className="rotate-90 -translate-y-20 m-auto" />
           </div>
           <div className="basis-2/3 px-2 md:px-8 lg:px-20">
-            <h3 className="md:mt-4">Venture into the worlds between worlds; dark and light, good and evil</h3>
+            <h3 className="md:mt-4">Venture into the worlds between worlds; light and dark, good and evil</h3>
             <h6 className="mt-4 sm:mt-10 md:mt-20">At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
-            <Link href="/about" passHref>
-              <h5 className="mt-8 sm:mt-16 underline">Learn more about us</h5>
-            </Link>
+            <div className="mt-8 sm:mt-16 flex gap-2">
+              <h5 className="">Learn more about <Link href="/about" passHref className="underline">our ideas</Link></h5>
+              <Image src="/icons/new-tab-icon.png" alt="view about page" width={28} height={14} />
+            </div>
           </div>
         </div>
       </section>

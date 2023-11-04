@@ -13,12 +13,13 @@ const Navigation: React.FC = () => {
         {/* Logo */}
         <div>
           <a href="/" className='flex items-center'>
-            {/* <img
-              src="/path/to/logo.png"
+            <Image
+              src="/logo.png"
               alt="Logo"
-              className="h-8 w-8 mr-2"
-            /> */}
-            <span className="font-semibold text-lg">Aesthete's Digest</span>
+              width={48}
+              height={48}
+            />
+            <span className="font-semibold text-lg uppercase">Aesthete's Digest</span>
           </a>
         </div>
 
