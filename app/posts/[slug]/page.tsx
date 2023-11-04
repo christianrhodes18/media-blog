@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4 font-sans">
           {article.frontmatter.tags.map((tag: string) => {
             return (
-              <Link href={`/posts/?tag=${tag.toLowerCase()}`} passHref>
+              <Link key={tag} href={`/posts/?tag=${tag.toLowerCase()}`} passHref>
                 <p className="p_less_padding">{tag}</p>
               </Link>
             )}
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="w-[95%] min-[700px]:w-full mx-auto my_overline flex flex-wrap gap-4 font-sans">
           {article.frontmatter.aesthetics.map((aesthetic: string) => {
             return (
-              <Link href={`/posts/?aesthetic=${aesthetic.toLowerCase()}`} passHref>
+              <Link key={aesthetic} href={`/posts/?aesthetic=${aesthetic.toLowerCase()}`} passHref>
                 <p className="p_less_padding">{aesthetic}</p>
               </Link>
             )}

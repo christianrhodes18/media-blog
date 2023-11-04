@@ -1,28 +1,5 @@
 "use client"
 
-// import { motion } from 'framer-motion'
-
-// const Parallax: React.FC = () => {
-//     return (
-//         <>
-//             <motion.h1
-//                 className="whitespace-nowrap overflow-hidden "
-//                 whileHover={{ x: 50 }}
-//             >
-//                 AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST
-//             </motion.h1>
-//             <motion.h1
-//                 className="whitespace-nowrap overflow-hidden "
-//                 whileHover={{ x: -80 }}
-//             >
-//                 AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST
-//             </motion.h1>
-//         </>
-//     )
-// }
-
-// export default Parallax
-
 import "./styles.css";
 import { useRef } from "react";
 import {
@@ -101,8 +78,8 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 export default function Parralax() {
   return (
     <section>
-      <ParallaxText baseVelocity={-.65}>AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST</ParallaxText>
-      <ParallaxText baseVelocity={.65}>AESTHETE'S DIGEST * AESTHETE'S DIGEST * AESTHETE'S DIGEST</ParallaxText>
+      <ParallaxText baseVelocity={-.65}>AESTHETE&apos;S DIGEST * AESTHETE&apos;S DIGEST * AESTHETE&apos;S DIGEST</ParallaxText>
+      <ParallaxText baseVelocity={.65}>AESTHETE&apos;S DIGEST * AESTHETE&apos;S DIGEST * AESTHETE&apos;S DIGEST</ParallaxText>
     </section>
   );
 }

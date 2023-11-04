@@ -21,7 +21,7 @@ const ArticleVisual:React.FC<ArticleProps> = ({ size, title, excerpt, tags, publ
                     <div className={`flex gap-2 caption text-white ${size === 'small' ? '' : 'basis-1/2'}`}>
                         {tags.map((tag) => {
                                 return (
-                                    <p className="rounded-xl pr-2">{tag}</p>
+                                    <p key={tag} className="rounded-xl pr-2">{tag}</p>
                                 )
                             }
                         )}

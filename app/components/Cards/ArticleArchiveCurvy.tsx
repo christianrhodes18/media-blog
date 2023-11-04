@@ -16,7 +16,7 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
                 <div className="flex flex-row gap-2 absolute bottom-[8rem] caption px-2"> {/* bottom-[6.5rem] */}
                     {tags.map((tag) => {
                             return (
-                                <p className="rounded-xl cardBGLightDark py-1 px-2">{tag}</p>
+                                <p key={tag} className="rounded-xl cardBGLightDark py-1 px-2">{tag}</p>
                             )
                         }
                     )}
@@ -40,7 +40,7 @@ const ArticleArchiveCurvy:React.FC<ArticleProps> = ({ title, excerpt, tags, publ
                     <div className="flex flex-row gap-2 relative bottom-10 caption px-4">
                         {tags.map((tag) => {
                                 return (
-                                    <p className="rounded-xl cardBGLightDark py-1 px-2">{tag}</p>
+                                    <p key={tag} className="rounded-xl cardBGLightDark py-1 px-2">{tag}</p>
                                 )
                             }
                         )}
