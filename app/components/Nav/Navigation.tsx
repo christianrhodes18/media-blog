@@ -4,8 +4,13 @@ import ThemeChanger from './ThemeChanger';
 import MobileNav from './MobileNav';
 import LanguageChanger from './LanguageChanger';
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 const Navigation: React.FC = () => {
+  const { theme, setTheme } = useTheme()
+
+  //get current theme
+  let isDark = useTheme().theme === 'dark' ? true : false
   
   return (
     <nav className="p-4 w-full max-w-[1400px] mx-auto">
@@ -13,12 +18,20 @@ const Navigation: React.FC = () => {
         {/* Logo */}
         <div>
           <a href="/" className='flex items-center'>
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={48}
-              height={48}
-            />
+            {isDark ? 
+              <Image
+                src="/logo/logo_white.png"
+                alt="Logo"
+                width={48}
+                height={48}
+              />
+            : <Image
+                src="/logo/logo_black.png"
+                alt="Logo"
+                width={48}
+                height={48}
+              />
+            }
             <span className="font-semibold text-lg uppercase">Aesthete&apos;s Digest</span>
           </a>
         </div>
