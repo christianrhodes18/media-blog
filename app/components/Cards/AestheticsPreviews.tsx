@@ -43,7 +43,7 @@ const AestheticsDescription: React.FC = () => {
             {Object.keys(data).map((aestheticName, index) => {
                 const aesthetic = data[aestheticName];
                 return (
-                    <Link href={`/about#${aestheticName}`} passHref >
+                    <Link key={index} href={`/about#${aestheticName}`} passHref >
                         <div key={aestheticName} className={`min-w-[352px] min-h-[242px] flex rounded-lg bg-[url('/about/${aesthetic.image}')] text-darkText hover:text-opacity-10 hover:scale-110 transition-all bg-cover`} style={{ backgroundImage: `url('/about/${aesthetic.image}'`}}>
                             <h4 className="uppercase text-center m-auto">{aesthetic.name}</h4>
                         </div>
