@@ -168,7 +168,9 @@ export default async function Home() {
             <h6 className="mt-4 sm:mt-10 md:mt-20">At Aesthete's Digest, we believe that the media we consume can make us better, more cultured and sensitive people. By having an open mind and the diligence to research topics of interest, you can grow into a person capable of growth, compassion, and greatness</h6>
             <div className="mt-8 sm:mt-16 flex gap-2">
               <h5 className="">Learn more about <Link href="/about" passHref className="underline">our ideas</Link></h5>
-              <Image src="/icons/new-tab-icon.png" alt="view about page" width={28} height={14} />
+              <Link href="/about" passHref>
+                <Image src="/icons/new-tab-icon.png" alt="view about page" width={28} height={14} />
+              </Link>
             </div>
           </div>
         </div>
