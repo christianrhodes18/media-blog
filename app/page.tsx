@@ -125,7 +125,7 @@ export default async function Home() {
               {/* render 3 most recent posts on mobile */}
               {posts.slice(0, 3).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
                 return (
-                  <Link href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
+                  <Link key={frontMatter.slug} href={`/posts/${frontMatter.slug}`} passHref className="lg:hidden">
                     <ArticleArchiveCurvy 
                       title={frontMatter.title}
                       excerpt={frontMatter.excerpt}
@@ -185,7 +185,7 @@ export default async function Home() {
               {/* render 3 recent articles */}
               {posts.slice(5, 8).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
                 return (
-                  <Link href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
+                  <Link key={frontMatter.slug} href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
                     <ArticleArchiveCurvy 
                       title={frontMatter.title}
                       excerpt={frontMatter.excerpt}
@@ -208,7 +208,7 @@ export default async function Home() {
               {/* render 3 recent articles */}
               {posts.slice(3, 6).map((frontMatter: { slug: any; title: string; publishedAt: string, excerpt: string, coverImage: string, tags: [string] }) => {
                 return (
-                  <Link href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
+                  <Link key={frontMatter.slug} href={`/posts/${frontMatter.slug}`} passHref className="max-w-[1130px]">
                     <ArticleArchiveCurvy 
                       title={frontMatter.title}
                       excerpt={frontMatter.excerpt}
