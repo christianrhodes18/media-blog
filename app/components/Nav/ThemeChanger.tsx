@@ -11,7 +11,6 @@ const ThemeChanger: React.FC = () => {
 
   //useEffect for rendering component after client-side hydration
   useEffect(() => {
-    updateTheme()
     setMounted(true)
   }, [])
 
@@ -23,7 +22,7 @@ const ThemeChanger: React.FC = () => {
     if (theme === 'dark') {
       setTheme('light')
       isDark = false
-    } else {
+    } else if (theme === 'light') {
       setTheme('dark')
       isDark = true
     }
