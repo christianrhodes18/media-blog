@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ThemeChanger from './ThemeChanger';
 import MobileNav from './MobileNav';
 import LanguageChanger from './LanguageChanger';
@@ -7,10 +7,25 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 
 const Navigation: React.FC = () => {
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
+  //useEffect for rendering component after client-side hydration
+  useEffect(() => {
+    // const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    // if (darkThemeMq.matches) {
+    //   // Theme set to dark.
+    //   setTheme('dark')
+    // } else {
+    //   // Theme set to light.
+    //   setTheme('light')
+    // }
+    // console.log('theme: ', theme)
+    setMounted(true)
+  }, [])
+
   //get current theme
-  let isDark = useTheme().theme === 'dark' ? true : false
+  //let isDark = useTheme().theme === 'dark' ? true : false
   
   return (
     <nav className="p-4 w-full max-w-[1400px] mx-auto">
@@ -18,7 +33,7 @@ const Navigation: React.FC = () => {
         {/* Logo */}
         <div>
           <a href="/" className='flex items-center'>
-            {isDark ? 
+            {theme === 'dark' ? 
               <Image
                 src="/logo/logo_white.png"
                 alt="Logo"
