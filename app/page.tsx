@@ -227,7 +227,7 @@ export default async function Home() {
               })}
             </div>
             <Link href="/posts" passHref>
-``              <button className="my-auto w-auto h-10 cardBGLightDark rounded-lg px-4 py-2 subtitle1 mb-8">
+              <button className="my-auto w-auto h-10 cardBGLightDark rounded-lg px-4 py-2 subtitle1 mb-8">
                 View All Articles
               </button>
             </Link>
