@@ -1,3 +1,7 @@
+.articleFormatting > p > a {
+    color: rgb(82, 82, 213);
+}
+
 h2 {
     margin: 3rem 0 1rem 0;
     font-size: 40px;
@@ -10,11 +14,7 @@ h3 {
 p {
     margin: 1rem 0 1rem 0;
 }
-p a {
-    font-weight: 400;
-    font-size: 12px;
-    margin: 0 0 0 0;
-}
+
 ol {
     width: 80%;
     margin-left: 2rem;

@@ -44,13 +44,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
           )}
         </div> 
       </div>
-      <h3 className="w-[95%] min-[700px]:w-full mx-auto mt-2">{article.frontmatter.title}</h3>
-      <h6 className="w-[95%] min-[700px]:w-full mx-auto mt-2">{article.frontmatter.excerpt}</h6>
-      <p className="w-[95%] min-[700px]:w-full mx-auto my-3 subtitle1">Published: {article.frontmatter.publishedAt}</p>
+      <h3 className="w-[95%] min-[700px]:w-full mx-auto mt-2 font-sans">{article.frontmatter.title}</h3>
+      <h6 className="w-[95%] min-[700px]:w-full mx-auto mt-2 font-sans">{article.frontmatter.excerpt}</h6>
+      <p className="w-[95%] min-[700px]:w-full mx-auto my-3 subtitle1 font-sans">Published: {article.frontmatter.publishedAt}</p>
       <Image className="mt-3 w-full h-auto" src={article.frontmatter.coverImage} alt={article.frontmatter.title} width={500} height={200} />
       <p className="w-[95%] min-[700px]:w-full mx-auto my-2 caption">Image by {article.frontmatter.coverImageCredit}</p>
       <hr className="w-[95%] min-[700px]:w-full mx-auto mb-6" />
-      <article className="w-[95%] min-[700px]:w-full mx-auto body1" dangerouslySetInnerHTML={{ __html: articleContent }} />
+      <article className="w-[95%] min-[700px]:w-full mx-auto body1 font-sans articleFormatting" dangerouslySetInnerHTML={{ __html: articleContent }} />
     </main>
   )
 }
