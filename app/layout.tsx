@@ -4,6 +4,7 @@ import { Providers } from './providers'
 import { Inter, Crimson_Text } from 'next/font/google'
 import Navigation from './components/Nav/Navigation'
 import Footer from './components/Footer'
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 const crimsonText = Crimson_Text({ 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Providers>
           <Navigation />
             {children}
+            <Analytics />
           <Footer />
         </Providers>
       </body>
