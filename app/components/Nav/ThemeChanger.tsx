@@ -26,6 +26,10 @@ const ThemeChanger: React.FC = () => {
       setTheme('dark')
       isDark = true
     }
+    else if (theme === 'system') {
+      setTheme('dark')
+      isDark = true
+    }
   }
 
   //return skeleton if not mounted
