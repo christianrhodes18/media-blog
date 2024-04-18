@@ -67,7 +67,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ type, currentTagFilters, cu
             setSelectedData(currentAestheticFilters)
         }
 
-    }, []);
+    }, [currentAestheticFilters, currentTagFilters, type]);
 
     // DEV: log selectedData
     // useEffect(() => {

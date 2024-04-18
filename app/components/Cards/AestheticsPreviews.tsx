@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from 'react';
-import Image from 'next/image'
 import Link from 'next/link';
 
 interface Aesthetic {
@@ -24,7 +23,7 @@ const AestheticsDescription: React.FC = () => {
             console.error('Error loading data:', error);
         });
         setMounted(true)
-    }, []);
+    }, [data]);
 
     //return skeleton if not mounted
     if (!mounted) {
@@ -39,7 +38,7 @@ const AestheticsDescription: React.FC = () => {
     }
 
     return (
-        <div className="overflow-x-auto flex gap-6 px-10 md:px-32 my-auto h-auto overflow-y-hidden">
+        <div className="overflow-x-auto flex gap-6 px-10 md:px-32 my-auto h-auto overflow-y-hidden hideScrollbarClass">
             {Object.keys(data).map((aestheticName, index) => {
                 const aesthetic = data[aestheticName];
                 return (

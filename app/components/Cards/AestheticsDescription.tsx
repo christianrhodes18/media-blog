@@ -30,7 +30,7 @@ const AestheticsDescription: React.FC = () => {
             console.error('Error loading data:', error);
         });
         setMounted(true)
-    }, []);
+    }, [data]);
 
     //return skeleton if not mounted
     if (!mounted) {

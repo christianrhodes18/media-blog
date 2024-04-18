@@ -106,6 +106,18 @@ h6 {
   background-color: black;
 }
 
+.hideScrollbarClass {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Webkit based browsers */
+.hideScrollbarClass::-webkit-scrollbar {
+  display: none;
+}
+
 
 @media (max-width: 600px) {
   h2 {
