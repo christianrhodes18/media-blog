@@ -27,16 +27,15 @@ export default async function Home() {
         // Render the first component for every 5th post (0, 5, 10, etc.)
         renderedPosts.push(
           <div key={post.id} className="w-full">
-            <Link href={`/posts/${post.slug}`} passHref>
-              <ArticleVisual
-                size="large"
-                title={post.title}
-                excerpt={post.excerpt}
-                tags={post.tags}
-                publishedAt={post.publishedAt}
-                image={post.coverImage}
-              />
-            </Link>
+            <ArticleVisual
+              link={post.slug}
+              size="large"
+              title={post.title}
+              excerpt={post.excerpt}
+              tags={post.tags}
+              publishedAt={post.publishedAt}
+              image={post.coverImage}
+            />
           </div>
         );
       } else {
@@ -47,28 +46,26 @@ export default async function Home() {
           renderedPosts.push(
             <div className="flex flex-row gap-2 my-2">
               <div key={post.id} className="w-1/2">
-                <Link href={`/posts/${post.slug}`} passHref>
-                  <ArticleVisual
-                    size="small"
-                    title={post.title}
-                    excerpt={post.excerpt}
-                    tags={post.tags}
-                    publishedAt={post.publishedAt}
-                    image={post.coverImage}
-                  />
-                </Link>
+                <ArticleVisual
+                  link={post.slug}
+                  size="small"
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  tags={post.tags}
+                  publishedAt={post.publishedAt}
+                  image={post.coverImage}
+                />
               </div>
               <div key={nextPost.id} className="w-1/2">
-                <Link href={`/posts/${nextPost.slug}`} passHref>
-                  <ArticleVisual
-                    size="small"
-                    title={nextPost.title}
-                    excerpt={nextPost.excerpt}
-                    tags={nextPost.tags}
-                    publishedAt={post.publishedAt}
-                    image={nextPost.coverImage}
-                  />
-                </Link>
+                <ArticleVisual
+                  link={nextPost.slug}
+                  size="small"
+                  title={nextPost.title}
+                  excerpt={nextPost.excerpt}
+                  tags={nextPost.tags}
+                  publishedAt={post.publishedAt}
+                  image={nextPost.coverImage}
+                />
               </div>
             </div>
           );
@@ -77,16 +74,15 @@ export default async function Home() {
           // If there's no next post, render large card
           renderedPosts.push(
             <div key={post.id} className="w-full">
-              <Link href={`/posts/${post.slug}`} passHref>
-                <ArticleVisual
-                  size="large"
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  tags={post.tags}
-                  publishedAt={post.publishedAt}
-                  image={post.coverImage}
-                />
-              </Link>
+              <ArticleVisual
+                link={post.slug}
+                size="large"
+                title={post.title}
+                excerpt={post.excerpt}
+                tags={post.tags}
+                publishedAt={post.publishedAt}
+                image={post.coverImage}
+              />
             </div>
           );
         }
